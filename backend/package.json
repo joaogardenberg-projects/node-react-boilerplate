@@ -6,13 +6,13 @@
   "private": true,
   "license": "ISC",
   "main": "src/index.js",
-  "homepage": "https://github.com/joaogardenberg/boilerplate#readme",
+  "homepage": "https://github.com/joaogardenberg-projects/boilerplate#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joaogardenberg/boilerplate.git"
+    "url": "git+https://github.com/joaogardenberg-projects/boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/joaogardenberg/boilerplate/issues"
+    "url": "https://github.com/joaogardenberg-projects/boilerplate/issues"
   },
   "scripts": {
     "dev": "nodemon -L",
