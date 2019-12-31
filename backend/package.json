@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "João Lucas da Costa Gardenberg",
   "private": true,
-  "license": "ISC",
+  "license": "MIT",
   "main": "src/index.js",
   "homepage": "https://github.com/joaogardenberg-projects/boilerplate#readme",
   "repository": {
