@@ -1,6 +1,13 @@
 const fs = require('fs')
 const YAML = require('yaml')
 
+const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? ''
+    : process.env.NODE_ENV === 'staging'
+    ? ''
+    : `http://localhost:${process.env.PORT}/`
+
 const config = {
   MONGODB_URI: process.env.MONGODB_URI,
   PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
