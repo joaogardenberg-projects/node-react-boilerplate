@@ -42,7 +42,13 @@ $ docker-compose up -d
 
 - Has a [Prettier](https://prettier.io/) configuration file for you to use ([.prettierrc](.prettierrc)).
 
-* Comes with steps for deploying to production.
+- Comes with steps for deploying to production.
+
+- If you want to see the output from all of the services together, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100
+  ```
 
 ### Backend (API)
 
@@ -52,7 +58,7 @@ $ docker-compose up -d
 
 - Using [Passport](http://www.passportjs.org/) for the authentication.
 
-- Comes with a pre-created User model with authentication and user management routes, and comes with an initial user:
+- Comes with a pre-created User model with authentication (via [Passport](http://www.passportjs.org/) + [JWT](https://jwt.io/)) and user management routes, also with an initial user:
 
   | Email                   | Password | Admin |
   | ----------------------- | -------- | ----- |
