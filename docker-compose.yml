@@ -27,7 +27,7 @@ services:
       - mongo
     environment:
       - MONGODB_URI=mongodb://mongo/charter-dev
-      - PASSWORD_PEPPER=passwordSaltRandomStringBlaBlaBla
+      - NODE_ENV=development
       - PORT=3334
       - REDIS_URI=redis://redis:6379
   mongo:
