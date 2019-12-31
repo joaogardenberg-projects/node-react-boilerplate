@@ -60,7 +60,7 @@ $ docker-compose up -d
 
 - Also has the option for signing in/up with [Google](https://developers.google.com/identity/protocols/OAuth2), [Facebook](https://developers.facebook.com/docs/facebook-login/web/) and [Instagram](https://www.instagram.com/developer/authentication/) (all managed by [Passport](http://www.passportjs.org/)).
 
-- Has middlewares for requiring login and/or being an admin.
+- Has middlewares for requiring user login and/or being an admin.
 
 - Has regexes for testing emails and urls ([regex.js](/backend/src/config/regex.js)).
 
