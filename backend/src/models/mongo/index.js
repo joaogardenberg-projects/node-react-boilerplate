@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { MONGODB_URI } = require('../../config')
+const seedUsers = require('../../services/users/seed')
 
 module.exports = () => {
   mongoose.connect(MONGODB_URI || '', {
@@ -16,4 +17,6 @@ module.exports = () => {
   mongoose.connection.on('error', () =>
     console.log("Couldn't connect to MongoDB")
   )
+
+  seedUsers()
 }
