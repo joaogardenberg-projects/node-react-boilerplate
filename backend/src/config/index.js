@@ -37,7 +37,7 @@ Object.keys(config).forEach((key) => {
     if (defaultValue) {
       config[key] = defaultValue
     } else {
-      console.warn(`Warning: There is no ${key} environment variable set`)
+      console.log(`[WARNING] There is no ${key} environment variable set!`)
     }
   }
 })
