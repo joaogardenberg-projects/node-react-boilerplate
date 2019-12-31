@@ -1,7 +1,5 @@
-module.exports = (req, res, next) => {
-  if (!req.user) {
-    return res.status(401).send({ error: 'Not logged in' })
-  }
+const authenticate = require('./authenticate')
 
-  next()
+module.exports = (req, res, next) => {
+  authenticate('jwt')(req, res, next)
 }

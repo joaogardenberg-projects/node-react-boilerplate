@@ -8,6 +8,7 @@ const BASE_URL =
     : `http://localhost:${process.env.PORT}/`
 
 const config = {
+  JWT_SECRET: process.env.JWT_SECRET,
   MONGODB_URI: process.env.MONGODB_URI,
   PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
   PORT: process.env.PORT,

@@ -1,11 +1,11 @@
+const authenticate = require('./authenticate')
+
 module.exports = (req, res, next) => {
-  if (!req.user) {
-    return res.status(401).send({ error: 'Not logged in' })
-  }
+  authenticate('jwt')(req, res, () => {
+    if (!req.user || !req.user.admin) {
+      return res.status(401).send('Unauthorized')
+    }
 
-  if (!req.user.admin) {
-    return res.status(401).send({ error: 'Not an admin' })
-  }
-
-  next()
+    next()
+  })
 }
