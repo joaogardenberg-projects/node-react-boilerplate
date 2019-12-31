@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const saltPassword = require('./saltPassword')
+const pepperPassword = require('./pepperPassword')
 
 module.exports = (password, encryptedPassword) =>
-  bcrypt.compareSync(saltPassword(password), encryptedPassword)
+  bcrypt.compareSync(pepperPassword(password), encryptedPassword)
