@@ -44,12 +44,6 @@ $ docker-compose up -d
 
 - Comes with steps for deploying to production.
 
-- If you want to see the output from all of the services together, open a terminal and type:
-
-  ```
-  $ docker-compose logs -f --tail=100
-  ```
-
 ### Backend (API)
 
 - Built with [NodeJS](https://nodejs.org/).
@@ -72,7 +66,7 @@ $ docker-compose up -d
 
 - If you need to add/change environment variables for the backend service, do so in the [docker-compose.yml](docker-compose.yml) file.
 
-- If you want to see the output of the server, open a terminal and type:
+- If you want to see the output of the Backend service, open a terminal and type:
 
   ```
   $ docker-compose logs -f --tail=100 backend
@@ -88,7 +82,7 @@ $ docker-compose up -d
 
 - Using [ttag](https://ttag.js.org/) for the translations.
 
-- If you want to see the output of the development server, open a terminal and type:
+- If you want to see the output of the Frontend service, open a terminal and type:
 
   ```
   $ docker-compose logs -f --tail=100 frontend
@@ -98,7 +92,7 @@ $ docker-compose up -d
 
 - It's run automatically when you start docker, you don't have to do anything.
 
-- If you want to see the output of the database, open a terminal and type:
+- If you want to see the output of the MongoDB service, open a terminal and type:
 
   ```
   $ docker-compose logs -f --tail=100 mongo
@@ -108,7 +102,7 @@ $ docker-compose up -d
 
 - It's run automatically when you start docker, you don't have to do anything.
 
-- If you want to see the output of the redis instance, open a terminal and type:
+- If you want to see the output of the Redis service, open a terminal and type:
 
   ```
   $ docker-compose logs -f --tail=100 redis
@@ -117,6 +111,12 @@ $ docker-compose up -d
 ### Docker
 
 - Has a configuration file ([docker-compose.yml](docker-compose.yml)).
+
+- If you want to see the output from all the services together, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100
+  ```
 
 ## Authors
 
