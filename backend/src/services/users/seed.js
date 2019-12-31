@@ -5,6 +5,7 @@ module.exports = async () => {
     await new User({
       email: 'initial@user.com',
       password: 'initial',
+      loginProvider: 'local',
       admin: true
     }).save()
   }
