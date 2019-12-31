@@ -54,9 +54,9 @@ $ docker-compose up -d
 
 - Comes with a pre-created User model with authentication and user management routes, and comes with an initial user:
 
-  | Email            | Password | Admin |
-  | ---------------- | -------- | ----- |
-  | initial@user.com | initial  | true  |
+  | Email                   | Password | Admin |
+  | ----------------------- | -------- | ----- |
+  | initial@user<b></b>.com | initial  | true  |
 
 - Also has the option for signing in/up with Google, Facebook and Instagram.
 
