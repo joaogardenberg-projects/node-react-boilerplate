@@ -66,6 +66,12 @@ $ docker-compose up -d
 
 - If you need to add/change environment variables for the backend service, do so in the [docker-compose.yml](docker-compose.yml) file.
 
+- If you want to see the output of the server, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100 backend
+  ```
+
 ### Frontend
 
 - Built with [ReactJS](https://reactjs.org/), using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
@@ -76,13 +82,31 @@ $ docker-compose up -d
 
 - Using [ttag](https://ttag.js.org/) for the translations.
 
+- If you want to see the output of the development server, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100 frontend
+  ```
+
 ### MongoDB
 
 - It's run automatically when you start docker, you don't have to do anything.
 
+- If you want to see the output of the database, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100 mongo
+  ```
+
 ### Redis
 
 - It's run automatically when you start docker, you don't have to do anything.
+
+- If you want to see the output of the redis instance, open a terminal and type:
+
+  ```
+  $ docker-compose logs -f --tail=100 redis
+  ```
 
 ### Docker
 
