@@ -1,5 +1,4 @@
 const fs = require('fs')
-const YAML = require('yaml')
 
 const BASE_URL =
   process.env.NODE_ENV === 'production'
@@ -19,7 +18,9 @@ let defaultsFile
 let defaults = {}
 
 try {
-  defaultsFile = YAML.parse(fs.readFileSync('../docker-compose.yml', 'utf8'))
+  defaultsFile = require('yaml').parse(
+    fs.readFileSync('../docker-compose.yml', 'utf8')
+  )
 } catch (e) {}
 
 if (defaultsFile) {
