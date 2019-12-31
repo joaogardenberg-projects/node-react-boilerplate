@@ -1,0 +1,35 @@
+{
+  "name": "boilerplate",
+  "description": "boilerplate",
+  "version": "1.0.0",
+  "author": "João Lucas da Costa Gardenberg",
+  "private": true,
+  "license": "ISC",
+  "main": "src/index.js",
+  "homepage": "https://github.com/joaogardenberg/boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaogardenberg/boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joaogardenberg/boilerplate/issues"
+  },
+  "scripts": {
+    "dev": "nodemon -L",
+    "start": "forever start src/index.js",
+    "stop": "forever stopall"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "forever": "^1.0.0",
+    "mongoose": "^5.8.3",
+    "mongoose-unique-validator": "^2.0.3",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "redis": "^2.8.0",
+    "yaml": "^1.7.2"
+  }
+}

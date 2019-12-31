@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+package-lock.json
+yarn.lock
+
+# misc
+.idea
+
+# docker
+docker-compose.override.yml

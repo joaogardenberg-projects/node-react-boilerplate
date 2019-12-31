@@ -1,0 +1,44 @@
+version: "3"
+services:
+  # frontend:
+  #   build: ./frontend
+  #   volumes:
+  #     - ./frontend/src:/app/src
+  #     - /app/node_modules
+  #   ports:
+  #     - 3333:3333
+  #   depends_on:
+  #     - backend
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      - ./backend/src:/app/src
+      - ./docker-compose.yml:/app/docker-compose.yml
+      - /app/node_modules
+    links:
+      - redis
+      - mongo
+    ports:
+      - 3334:3334
+    depends_on:
+      - redis
+      - mongo
+    environment:
+      - MONGODB_URI=mongodb://mongo/charter-dev
+      - PASSWORD_PEPPER=passwordSaltRandomStringBlaBlaBla
+      - PORT=3334
+      - REDIS_URI=redis://redis:6379
+  mongo:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+  redis:
+    image: redis
+    ports:
+      - 6543:6543
+volumes:
+  mongodata:
