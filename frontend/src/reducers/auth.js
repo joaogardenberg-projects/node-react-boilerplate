@@ -1,0 +1,40 @@
+import {
+  GET_CURRENT_USER,
+  SIGN_IN_LOCAL,
+  SIGN_IN_LOCAL_SUCCEEDED,
+  SIGN_IN_LOCAL_FAILED,
+  SIGN_IN_GOOGLE,
+  SIGN_IN_GOOGLE_SUCCEEDED,
+  SIGN_IN_GOOGLE_FAILED,
+  SIGN_IN_FACEBOOK,
+  SIGN_IN_FACEBOOK_SUCCEEDED,
+  SIGN_IN_FACEBOOK_FAILED,
+  SIGN_OUT,
+  SIGN_OUT_SUCCEEDED,
+  SIGN_OUT_FAILED,
+  UNAUTHORIZED
+} from '../actions/types'
+
+const INITIAL_STATE = {}
+
+export default (state = INITIAL_STATE, { type, payload }) => {
+  switch (type) {
+    case GET_CURRENT_USER:
+    case SIGN_IN_LOCAL:
+    case SIGN_IN_LOCAL_SUCCEEDED:
+    case SIGN_IN_LOCAL_FAILED:
+    case SIGN_IN_GOOGLE:
+    case SIGN_IN_GOOGLE_SUCCEEDED:
+    case SIGN_IN_GOOGLE_FAILED:
+    case SIGN_IN_FACEBOOK:
+    case SIGN_IN_FACEBOOK_SUCCEEDED:
+    case SIGN_IN_FACEBOOK_FAILED:
+    case SIGN_OUT:
+    case SIGN_OUT_SUCCEEDED:
+    case SIGN_OUT_FAILED:
+    case UNAUTHORIZED:
+      return state
+    default:
+      return state
+  }
+}

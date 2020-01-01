@@ -1,0 +1,44 @@
+import {
+  FETCH_USERS,
+  FETCH_USERS_SUCCEEDED,
+  FETCH_USERS_FAILED,
+  FETCH_USER,
+  FETCH_USER_SUCCEEDED,
+  FETCH_USER_FAILED,
+  CREATE_USER,
+  CREATE_USER_SUCCEEDED,
+  CREATE_USER_FAILED,
+  UPDATE_USER,
+  UPDATE_USER_SUCCEEDED,
+  UPDATE_USER_FAILED,
+  DESTROY_USER,
+  DESTROY_USER_SUCCEEDED,
+  DESTROY_USER_FAILED,
+  USER_NOT_FOUND
+} from '../actions/types'
+
+const INITIAL_STATE = {}
+
+export default (state = INITIAL_STATE, { type, payload }) => {
+  switch (type) {
+    case FETCH_USERS:
+    case FETCH_USERS_SUCCEEDED:
+    case FETCH_USERS_FAILED:
+    case FETCH_USER:
+    case FETCH_USER_SUCCEEDED:
+    case FETCH_USER_FAILED:
+    case CREATE_USER:
+    case CREATE_USER_SUCCEEDED:
+    case CREATE_USER_FAILED:
+    case UPDATE_USER:
+    case UPDATE_USER_SUCCEEDED:
+    case UPDATE_USER_FAILED:
+    case DESTROY_USER:
+    case DESTROY_USER_SUCCEEDED:
+    case DESTROY_USER_FAILED:
+    case USER_NOT_FOUND:
+      return state
+    default:
+      return state
+  }
+}
