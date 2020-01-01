@@ -15,11 +15,7 @@ function loginGoogle(req, res) {
 }
 
 function loginFacebook(req, res) {
-  loginService(req, res, 'facebook')
-}
-
-function loginInstagram(req, res) {
-  loginService(req, res, 'instagram')
+  loginService(req, res, 'facebook', { scope: ['email'], display: 'popup' })
 }
 
 async function googleCallback(req, res) {
@@ -28,10 +24,6 @@ async function googleCallback(req, res) {
 
 async function facebookCallback(req, res) {
   res.send(await loginService(req, res, 'facebook'))
-}
-
-async function instagramCallback(req, res) {
-  res.send(await loginService(req, res, 'instagram'))
 }
 
 async function logout(req, res) {
@@ -43,9 +35,7 @@ module.exports = {
   login,
   loginGoogle,
   loginFacebook,
-  loginInstagram,
   googleCallback,
   facebookCallback,
-  instagramCallback,
   logout
 }

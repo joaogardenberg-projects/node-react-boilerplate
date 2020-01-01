@@ -8,7 +8,5 @@ module.exports = (app) => {
   app.get('/auth/google/callback', AuthController.googleCallback)
   app.get('/auth/facebook', AuthController.loginFacebook)
   app.get('/auth/facebook/callback', AuthController.facebookCallback)
-  app.get('/auth/instagram', AuthController.loginInstagram)
-  app.get('/auth/instagram/callback', AuthController.instagramCallback)
   app.delete('/auth', requireLogin, AuthController.logout)
 }

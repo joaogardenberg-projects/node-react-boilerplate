@@ -4,7 +4,6 @@ const localStrategy = require('./localStrategy')
 const jwtStrategy = require('./jwtStrategy')
 const googleStrategy = require('./googleStrategy')
 const facebookStrategy = require('./facebookStrategy')
-const instagramStrategy = require('./instagramStrategy')
 
 passport.serializeUser((user, done) => {
   done(null, user.id)
@@ -24,4 +23,3 @@ localStrategy(passport, User)
 jwtStrategy(passport, User)
 googleStrategy(passport, User)
 facebookStrategy(passport, User)
-instagramStrategy(passport, User)
