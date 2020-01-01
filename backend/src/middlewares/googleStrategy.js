@@ -27,16 +27,16 @@ module.exports = (passport, User) => {
 
           if (user) {
             if (
-              user.googleId !== googleId ||
               !user.loginProviders.includes('google') ||
+              user.googleId !== googleId ||
               user.name !== name ||
               (user.picture || {}).url !== picture
             ) {
               user
                 .set({
-                  googleId,
                   name,
                   picture: { url: picture, alt: 'User image' },
+                  googleId,
                   loginProviders: [
                     ...new Set([...user.loginProviders, 'google'])
                   ]
@@ -58,10 +58,10 @@ module.exports = (passport, User) => {
           } else {
             User.create(
               {
-                googleId,
                 name,
-                email,
                 picture: { url: picture, alt: 'User image' },
+                email,
+                googleId,
                 loginProviders: ['google']
               },
               (_err, _user) => {
