@@ -66,7 +66,9 @@ module.exports = (passport, User) => {
               },
               (_err, _user) => {
                 if (_err) {
-                  return done(_err, _user, { message: 'Something went wrong' })
+                  return done(_err, _user, {
+                    message: 'Something went wrong'
+                  })
                 }
 
                 done(null, _user, { message: 'Logged in successfully' })
