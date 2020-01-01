@@ -8,9 +8,15 @@ const BASE_URL =
     : `http://localhost:${process.env.PORT}`
 
 const config = {
+  FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
+  FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
+  FACEBOOK_CALLBACK_URL: `${BASE_URL}/auth/facebook/callback`,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   GOOGLE_CALLBACK_URL: `${BASE_URL}/auth/google/callback`,
+  INSTAGRAM_CLIENT_ID: process.env.INSTAGRAM_CLIENT_ID,
+  INSTAGRAM_CLIENT_SECRET: process.env.INSTAGRAM_CLIENT_SECRET,
+  INSTAGRAM_CALLBACK_URL: `${BASE_URL}/auth/instagram/callback`,
   JWT_SECRET: process.env.JWT_SECRET,
   MONGODB_URI: process.env.MONGODB_URI,
   PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
