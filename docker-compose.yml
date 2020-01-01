@@ -26,6 +26,8 @@ services:
       - redis
       - mongo
     environment:
+      - FACEBOOK_CLIENT_ID=857754284683597
+      - FACEBOOK_CLIENT_SECRET=a47cd72988e56dfd94ba6c1810f9c05a
       - GOOGLE_CLIENT_ID=222445472327-dl0o4j0vfdg9r7bg99kkd0vimmoi3je0.apps.googleusercontent.com
       - GOOGLE_CLIENT_SECRET=PYh3Wx7K8E9igJcWF5IVMeXB
       - JWT_SECRET=jwtSecret
