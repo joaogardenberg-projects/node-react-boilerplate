@@ -4,6 +4,12 @@ A boilerplate project I built for myself to use whenever I want to start a new p
 
 It has a backend project structure inspired by [Ruby on Rails](https://rubyonrails.org/).
 
+## TO-DO
+
+- Make loginProvider not changeable
+- Logout (invalidate token, [this](https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens) says to use [jwt-redis](https://github.com/Natashkinsasha/jwt-redis-v2) (or maybe [redis-jwt](https://github.com/kevoj/redis-jwt) if it's better?) instead of [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken))
+- Make all OAuths use popup in the frontend. [useful link](https://dev.to/dinkydani21/how-we-use-a-popup-for-google-and-outlook-oauth-oci), [another useful link](https://github.com/jaredhanson/passport-facebook/issues/188)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -58,7 +64,7 @@ $ docker-compose up -d
   | ----------------------- | -------- | ----- |
   | initial@user<b></b>.com | initial  | true  |
 
-- Also has the option for signing in/up with [Google](https://developers.google.com/identity/protocols/OAuth2), [Facebook](https://developers.facebook.com/docs/facebook-login/web/) and [Instagram](https://www.instagram.com/developer/authentication/) (all managed by [Passport](http://www.passportjs.org/)).
+- Also has the option for signing in/up with [Google](https://developers.google.com/identity/protocols/OAuth2) and [Facebook](https://developers.facebook.com/docs/facebook-login/web/) (all managed by [Passport](http://www.passportjs.org/)).
 
 - Has middlewares for requiring user login and/or being an admin.
 
