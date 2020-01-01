@@ -1,4 +1,3 @@
-const identity = require('lodash/identity')
 const { Strategy: GoogleStrategy } = require('passport-google-oauth20')
 const {
   GOOGLE_CLIENT_ID,
