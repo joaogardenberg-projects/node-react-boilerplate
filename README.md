@@ -12,9 +12,7 @@ It has a backend project structure inspired by [Ruby on Rails](https://rubyonrai
 
 ### Frontend
 
-- Create the react app
 - Build a structure with Redux + Redux Thunk
-- Add React Router
 - Make a test page where you can sign in with username/password, Google OAuth and Facebook OAuth
 - Make all OAuths use a popup. [useful link](https://dev.to/dinkydani21/how-we-use-a-popup-for-google-and-outlook-oauth-oci), [another useful link](https://github.com/jaredhanson/passport-facebook/issues/188)
 
