@@ -31,14 +31,14 @@ const UserSchema = Schema(
       ...validation.facebookId,
       type: String
     },
-    instagramId: {
-      ...validation.instagramId,
+    oauthEmail: {
+      ...validation.oauthEmail,
       type: String
     },
-    loginProviders: {
-      ...validation.loginProviders,
-      type: [String],
-      default: [LOGIN_PROVIDERS[0]]
+    loginProvider: {
+      ...validation.loginProvider,
+      type: String,
+      default: LOGIN_PROVIDERS[0]
     },
     admin: {
       ...validation.admin,

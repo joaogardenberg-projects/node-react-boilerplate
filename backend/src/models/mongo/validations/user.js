@@ -7,9 +7,15 @@ module.exports = {
   },
   email: {
     index: true,
-    unique: [true, "There's already an account with this email ({VALUE})"],
+    unique: [true, "There's already an account with this email"],
     uniqueCaseInsensitive: true,
-    required: [true, 'Email required'],
+    sparse: true,
+    required: [
+      function() {
+        return this.loginProvider === 'local'
+      },
+      'Email required'
+    ],
     match: [EMAIL_REGEX, 'Invalid email']
   },
   password: {
@@ -36,26 +42,14 @@ module.exports = {
       'Facebook ID required'
     ]
   },
-  instagramId: {
-    required: [
-      function() {
-        return this.loginProvider === 'instagram'
-      },
-      'Instagram ID required'
-    ]
+  oauthEmail: {
+    match: [EMAIL_REGEX, 'Invalid email']
   },
-  loginProviders: {
+  loginProvider: {
     required: [true, 'Login provider required'],
-    validate: {
-      validator: (loginProviders) => {
-        return (
-          loginProviders.length &&
-          loginProviders.every(
-            (provider) => LOGIN_PROVIDERS.indexOf(provider) > -1
-          )
-        )
-      },
-      message: 'Only local, google, facebook and instagram allowed'
+    enum: {
+      values: LOGIN_PROVIDERS,
+      message: 'Only local, google, and facebook allowed'
     }
   },
   admin: {
