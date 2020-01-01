@@ -3,13 +3,17 @@ const authenticate = require('../../middlewares/authenticate')
 const { JWT_SECRET } = require('../../config')
 const sanitize = require('../users/sanitize')
 
-module.exports = (req, res, strategy) => {
+module.exports = (req, res, strategy, options) => {
   return new Promise((resolve) => {
-    authenticate(strategy)(req, res, () => {
-      resolve({
-        user: sanitize(req.user),
-        token: jwt.sign(req.user.toJSON(), JWT_SECRET)
-      })
+    authenticate(strategy, options)(req, res, () => {
+      if (req.user) {
+        resolve({
+          user: sanitize(req.user),
+          token: jwt.sign(req.user.toJSON(), JWT_SECRET)
+        })
+      } else {
+        resolve(null)
+      }
     })
   })
 }

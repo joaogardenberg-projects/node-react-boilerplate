@@ -26,6 +26,8 @@ services:
       - redis
       - mongo
     environment:
+      - GOOGLE_CLIENT_ID=222445472327-dl0o4j0vfdg9r7bg99kkd0vimmoi3je0.apps.googleusercontent.com
+      - GOOGLE_CLIENT_SECRET=PYh3Wx7K8E9igJcWF5IVMeXB
       - MONGODB_URI=mongodb://mongo/charter-dev
       - NODE_ENV=development
       - PASSWORD_PEPPER=passwordPepper

@@ -10,6 +10,8 @@ module.exports = (UserSchema) => {
   }
 
   UserSchema.post('validate', function(doc) {
-    doc.password = encryptPassword(doc.password)
+    if (doc.password) {
+      doc.password = encryptPassword(doc.password)
+    }
   })
 }

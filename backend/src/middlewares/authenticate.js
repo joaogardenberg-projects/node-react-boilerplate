@@ -1,4 +1,4 @@
 const passport = require('passport')
 
-module.exports = (strategy) =>
-  passport.authenticate(strategy, { session: false })
+module.exports = (strategy, options = {}) =>
+  passport.authenticate(strategy, { session: false, ...options })
