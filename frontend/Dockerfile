@@ -1,6 +1,7 @@
 FROM node:alpine
 WORKDIR /app
-COPY package.json .
+COPY ./frontend/package.json .
 RUN npm install
-COPY . .
+COPY ./frontend/ .
+COPY docker-compose.yml .
 CMD ["npm", "run", "start"]
