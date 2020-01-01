@@ -1,35 +1,41 @@
-const _currentUser = require('../services/auth/currentUser')
-const _login = require('../services/auth/login')
-const _logout = require('../services/auth/logout')
+const currentUserService = require('../services/auth/currentUser')
+const loginService = require('../services/auth/login')
+const logoutService = require('../services/auth/logout')
 
 async function currentUser(req, res) {
-  const response = await _currentUser(req, res)
-  res.send(response)
+  res.send(await currentUserService(req, res))
 }
 
 async function login(req, res) {
-  const response = await _login(req, res, 'local')
-  res.send(response)
+  res.send(await loginService(req, res, 'local'))
 }
 
-async function loginGoogle(req, res) {
-  const response = await _login(req, res, 'google')
-  res.send(response)
+function loginGoogle(req, res) {
+  loginService(req, res, 'google', { scope: ['openid', 'profile', 'email'] })
 }
 
-async function loginFacebook(req, res) {
-  const response = await _login(req, res, 'facebook')
-  res.send(response)
+function loginFacebook(req, res) {
+  loginService(req, res, 'facebook')
 }
 
-async function loginInstagram(req, res) {
-  const response = await _login(req, res, 'instagram')
-  res.send(response)
+function loginInstagram(req, res) {
+  loginService(req, res, 'instagram')
 }
 
-function logout(req, res) {
-  const response = _logout(req)
-  res.send(response)
+async function googleCallback(req, res) {
+  res.send(await loginService(req, res, 'google'))
+}
+
+async function facebookCallback(req, res) {
+  res.send(await loginService(req, res, 'facebook'))
+}
+
+async function instagramCallback(req, res) {
+  res.send(await loginService(req, res, 'instagram'))
+}
+
+async function logout(req, res) {
+  res.send(await logoutService(req))
 }
 
 module.exports = {
@@ -38,5 +44,8 @@ module.exports = {
   loginGoogle,
   loginFacebook,
   loginInstagram,
+  googleCallback,
+  facebookCallback,
+  instagramCallback,
   logout
 }
