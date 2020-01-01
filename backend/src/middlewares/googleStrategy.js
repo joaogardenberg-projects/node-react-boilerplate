@@ -14,63 +14,63 @@ module.exports = (passport, User) => {
         callbackURL: GOOGLE_CALLBACK_URL
       },
       (_, __, { id: googleId, displayName: name, emails, photos }, done) => {
-        const { value: picture } = photos.find(({ value }) => value)
-        const { value: email } = emails.find(
-          ({ value, verified }) => verified && value
-        )
+        const { value: picture } =
+          photos && photos.length
+            ? photos.find(({ value }) => value)
+            : { value: undefined }
 
-        User.findOne({ email }, (err, user) => {
+        const { value: oauthEmail } =
+          emails && emails.length
+            ? emails.find(({ value, verified }) => verified && value)
+            : { value: undefined }
+
+        User.findOne({ googleId, loginProvider: 'google' }, (err, user) => {
           if (err) {
             return done(err, user, { message: 'Something went wrong' })
           }
 
           if (user) {
             if (
-              !user.loginProviders.includes('google') ||
-              user.googleId !== googleId ||
-              user.name !== name ||
-              (user.picture || {}).url !== picture
+              (name && user.name !== name) ||
+              (picture && (user.picture || {}).url !== picture) ||
+              (oauthEmail && user.oauthEmail !== oauthEmail)
             ) {
+              const newName = name || user.name
+              const newPicture =
+                picture && (user.picture || {}).url !== picture
+                  ? { url: picture, alt: `${name || 'User'}'s picture` }
+                  : user.picture
+              const newOauthEmail = oauthEmail || user.oauthEmail
+
               user
                 .set({
-                  name,
-                  picture: { url: picture, alt: 'User image' },
-                  googleId,
-                  loginProviders: [
-                    ...new Set([...user.loginProviders, 'google'])
-                  ]
+                  name: newName,
+                  picture: newPicture,
+                  oauthEmail: newOauthEmail
                 })
                 .save((_err, _user) => {
-                  if (_err) {
-                    return done(_err, _user, {
-                      message: 'Something went wrong'
-                    })
-                  }
-
-                  done(null, _user, {
-                    message: 'Logged in successfully'
-                  })
+                  _err
+                    ? done(_err, _user, { message: 'Something went wrong' })
+                    : done(null, _user, { message: 'Signed in successfully' })
                 })
             } else {
-              done(null, user, { message: 'Logged in successfully' })
+              done(null, user, { message: 'Signed in successfully' })
             }
           } else {
             User.create(
               {
                 name,
-                picture: { url: picture, alt: 'User image' },
-                email,
+                picture: picture
+                  ? { url: picture, alt: `${name || 'User'}'s picture` }
+                  : undefined,
                 googleId,
-                loginProviders: ['google']
+                oauthEmail,
+                loginProvider: 'google'
               },
               (_err, _user) => {
-                if (_err) {
-                  return done(_err, _user, {
-                    message: 'Something went wrong'
-                  })
-                }
-
-                done(null, _user, { message: 'Logged in successfully' })
+                _err
+                  ? done(_err, _user, { message: 'Something went wrong' })
+                  : done(null, _user, { message: 'Signed up successfully' })
               }
             )
           }
