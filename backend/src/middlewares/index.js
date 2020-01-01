@@ -3,7 +3,6 @@ const passport = require('passport')
 const helmet = require('helmet')
 const cors = require('cors')
 const morgan = require('morgan')
-// const { COOKIE_KEY } = require('../config')
 require('./passport')
 
 module.exports = (app) => {
