@@ -1,3 +1,1 @@
-module.exports = ({ url, alt } = {}) => {
-  return { url, alt }
-}
+module.exports = ({ url, alt } = {}) => ({ url, alt })
