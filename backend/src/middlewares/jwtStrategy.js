@@ -9,7 +9,7 @@ module.exports = (passport, User) => {
         secretOrKey: JWT_SECRET
       },
       (jwtPayload, done) => {
-        User.findOne({ id: jwtPayload.sub }, (err, user) => {
+        User.findById(jwtPayload._id, (err, user) => {
           if (err) {
             return done(err, false)
           }
