@@ -8,7 +8,6 @@ It has a backend project structure inspired by [Ruby on Rails](https://rubyonrai
 
 ### Backend
 
-- Logout (invalidate token, [this](https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens) says to use [jwt-redis](https://github.com/Natashkinsasha/jwt-redis-v2) (or maybe [redis-jwt](https://github.com/kevoj/redis-jwt) if it's better?) instead of [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken))
 - Make user self-editing endpoints and services
 
 ### Frontend
