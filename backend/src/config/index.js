@@ -1,19 +1,19 @@
 const fs = require('fs')
 
-const BASE_URL =
+const BASE_FRONTEND_URL =
   process.env.NODE_ENV === 'production'
     ? ''
     : process.env.NODE_ENV === 'staging'
     ? ''
-    : `http://localhost:${process.env.PORT}`
+    : `http://localhost:3000`
 
 const config = {
   FACEBOOK_CLIENT_ID: process.env.FACEBOOK_CLIENT_ID,
   FACEBOOK_CLIENT_SECRET: process.env.FACEBOOK_CLIENT_SECRET,
-  FACEBOOK_CALLBACK_URL: `${BASE_URL}/auth/facebook/callback`,
+  FACEBOOK_CALLBACK_URL: `${BASE_FRONTEND_URL}/auth/callback`,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-  GOOGLE_CALLBACK_URL: `${BASE_URL}/auth/google/callback`,
+  GOOGLE_CALLBACK_URL: `${BASE_FRONTEND_URL}/auth/callback`,
   JWT_SECRET: process.env.JWT_SECRET,
   MONGODB_URI: process.env.MONGODB_URI,
   PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
