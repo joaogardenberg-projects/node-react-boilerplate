@@ -9,12 +9,15 @@ It has a backend project structure inspired by [Ruby on Rails](https://rubyonrai
 ### Backend
 
 - Logout (invalidate token, [this](https://stackoverflow.com/questions/21978658/invalidating-json-web-tokens) says to use [jwt-redis](https://github.com/Natashkinsasha/jwt-redis-v2) (or maybe [redis-jwt](https://github.com/kevoj/redis-jwt) if it's better?) instead of [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken))
+- Make user self-editing endpoints and services
 
 ### Frontend
 
-- Build a structure with Redux + Redux Thunk
-- Make a test page where you can sign in with username/password, Google OAuth and Facebook OAuth
-- Make all OAuths use a popup. [useful link](https://dev.to/dinkydani21/how-we-use-a-popup-for-google-and-outlook-oauth-oci), [another useful link](https://github.com/jaredhanson/passport-facebook/issues/188)
+- Make users action creators and reducers
+- Make users tests in the backend tests page
+- Make user self-editing action creators and reducers
+- Make user self-editing tests in the backend tests page
+- Add translations
 
 ## Getting Started
 
