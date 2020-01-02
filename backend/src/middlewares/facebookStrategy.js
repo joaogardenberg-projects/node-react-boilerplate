@@ -5,25 +5,6 @@ const {
   FACEBOOK_CALLBACK_URL
 } = require('../config')
 
-FacebookStrategy.prototype.authorizationParams = function(options) {
-  var params = {}
-
-  if (options.display) {
-    params.display = options.display
-  }
-
-  if (options.authType) {
-    params.auth_type = options.authType
-  }
-
-  if (options.authNonce) {
-    params.auth_nonce = options.authNonce
-  }
-
-  console.log(params)
-  return params
-}
-
 module.exports = (passport, User) => {
   passport.use(
     new FacebookStrategy(
