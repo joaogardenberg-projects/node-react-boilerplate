@@ -18,7 +18,7 @@ const BackendTests = ({
   signOut: _signOut
 }) => {
   useEffect(() => {
-    _getCurrentUser()
+    !currentUser.present && !currentUser.loading && _getCurrentUser()
   }, [_getCurrentUser])
 
   const onSignInLocal = () => {
