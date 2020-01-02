@@ -7,28 +7,15 @@ export const BASE_URL =
     ? ''
     : `http://localhost:4000`
 
-export const get = (path, options) => {
-  return request('get', path, options)
-}
+export const get = (path, options) => request('get', path, options)
 
-export const post = (path, options) => {
-  return request('post', path, options)
-}
+export const post = (path, options) => request('post', path, options)
 
-export const put = (path, options) => {
-  return request('put', path, options)
-}
+export const put = (path, options) => request('put', path, options)
 
-export const patch = (path, options) => {
-  return request('patch', path, options)
-}
+export const patch = (path, options) => request('patch', path, options)
 
-export const _delete = (path, options) => {
-  return request('delete', path, options)
-}
-
-const request = (method, path, options) => {
-  const jwt = localStorage.getItem('session') || ''
+export const _delete = (path, options) => request('delete', path, options)
 
   return axios({
     method,
