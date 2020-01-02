@@ -9,6 +9,7 @@ export const setAuthToken = (token) => {
   return true
 }
 
-export const removeAuthToken = () => localStorage.removeItem('session')
+export const removeAuthToken = () =>
+  getAuthToken() && localStorage.removeItem('session')
 
 export default { getAuthToken, setAuthToken, removeAuthToken }
