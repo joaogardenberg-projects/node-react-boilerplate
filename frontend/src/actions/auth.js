@@ -30,6 +30,7 @@ export const getCurrentUser = () => async (dispatch) => {
 
     dispatch({ type: GET_CURRENT_USER_SUCCEEDED, payload: user })
   } catch (e) {
+    removeAuthToken()
     dispatch({ type: GET_CURRENT_USER_FAILED })
   }
 }
@@ -49,6 +50,7 @@ export const signInLocal = ({ email, password }) => async (dispatch) => {
     setAuthToken(token)
     dispatch({ type: SIGN_IN_LOCAL_SUCCEEDED, payload: user })
   } catch (e) {
+    removeAuthToken()
     dispatch({ type: SIGN_IN_LOCAL_FAILED })
   }
 }
@@ -69,6 +71,7 @@ export const signInGoogle = () => async (dispatch) => {
     setAuthToken(token)
     dispatch({ type: SIGN_IN_GOOGLE_SUCCEEDED, payload: user })
   } catch (e) {
+    removeAuthToken()
     dispatch({ type: SIGN_IN_GOOGLE_FAILED })
   }
 }
@@ -89,6 +92,7 @@ export const signInFacebook = () => async (dispatch) => {
     setAuthToken(token)
     dispatch({ type: SIGN_IN_FACEBOOK_SUCCEEDED, payload: user })
   } catch (e) {
+    removeAuthToken()
     dispatch({ type: SIGN_IN_FACEBOOK_FAILED })
   }
 }
