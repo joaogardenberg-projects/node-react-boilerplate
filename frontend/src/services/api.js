@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getAuthToken } from './authToken'
 
 export const BASE_URL =
   process.env.NODE_ENV === 'production'
@@ -17,12 +18,12 @@ export const patch = (path, options) => request('patch', path, options)
 
 export const _delete = (path, options) => request('delete', path, options)
 
-  return axios({
+const request = (method, path, options) =>
+  axios({
     method,
     url: `${BASE_URL}${path}`,
     data: options,
-    headers: { Authorization: `Bearer ${jwt}` }
+    headers: { Authorization: `Bearer ${getAuthToken()}` }
   })
-}
 
 export default { get, post, put, patch, delete: _delete }
