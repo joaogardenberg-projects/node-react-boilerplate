@@ -1,6 +1,6 @@
 import API from '../services/api'
 import oAuthLogin from '../services/oAuthLogin'
-import { setAuthToken } from '../services/authToken'
+import { setAuthToken, removeAuthToken } from '../services/authToken'
 import {
   GET_CURRENT_USER_SENT,
   GET_CURRENT_USER_SUCCEEDED,
@@ -98,7 +98,7 @@ export const signInFacebook = () => async (dispatch) => {
 export const signOut = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_OUT_SENT })
-    localStorage.removeItem('session')
+    removeAuthToken()
     dispatch({ type: SIGN_OUT_SUCCEEDED })
   } catch (e) {
     dispatch({ type: SIGN_OUT_FAILED })
