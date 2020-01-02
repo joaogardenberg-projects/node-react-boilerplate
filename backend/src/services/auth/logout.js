@@ -1,4 +1,3 @@
-module.exports = (req) => {
-  req.logout()
-  return { user: {} }
+module.exports = () => {
+  return new Promise((resolve) => resolve(null))
 }
