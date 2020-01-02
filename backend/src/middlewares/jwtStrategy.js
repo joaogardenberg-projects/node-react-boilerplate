@@ -11,14 +11,14 @@ module.exports = (passport, User) => {
       (jwtPayload, done) => {
         User.findById(jwtPayload._id, (err, user) => {
           if (err) {
-            return done(err, false)
+            return done(err, false, { message: 'Unauthorized' })
           }
 
           if (!user) {
-            return done(null, false)
+            return done(null, false, { message: 'Unauthorized' })
           }
 
-          return done(null, user)
+          return done(null, user, { message: 'Authenticated successfully' })
         })
       }
     )
