@@ -56,7 +56,6 @@ export const signInLocal = ({ email, password }) => async (dispatch) => {
 export const signInGoogle = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_GOOGLE_SENT })
-
     const { data: queryString } = await oAuthLogin('google')
 
     const {
@@ -77,7 +76,6 @@ export const signInGoogle = () => async (dispatch) => {
 export const signInFacebook = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_FACEBOOK_SENT })
-
     const { data: queryString } = await oAuthLogin('facebook')
 
     const {
