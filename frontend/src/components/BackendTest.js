@@ -1,45 +1,86 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import {
+  getCurrentUser,
+  signInLocal,
+  signInGoogle,
+  signInFacebook,
+  signOut
+} from '../actions'
 
-const BackendTest = () => {
-  const [signedIn, signIn] = useState(false)
+const BackendTests = ({
+  currentUser,
+  getCurrentUser: _getCurrentUser,
+  signInLocal: _signInLocal,
+  signInGoogle: _signInGoogle,
+  signInFacebook: _signInFacebook,
+  signOut: _signOut
+}) => {
+  useEffect(() => {
+    _getCurrentUser()
+  }, [_getCurrentUser])
 
-  const text = signedIn
-    ? "Congratulations, you're signed in!"
-    : "You're not signed in."
+  const onSignInLocal = () => {
+    const email = prompt('Email:')
+    const password = prompt('Password:')
+    _signInLocal({ email, password })
+  }
 
-  const renderButtons = signedIn ? (
-    <button type="button" onClick={() => signIn(false)}>
-      Sign out
-    </button>
-  ) : (
-    <>
-      <button type="button" onClick={() => signIn(true)}>
-        Sign in
+  const renderText = () =>
+    currentUser.loading
+      ? 'Loading...'
+      : currentUser.present
+      ? "Congratulations, you're signed in!"
+      : "You're not signed in."
+
+  const renderButtons = () =>
+    currentUser.loading ? null : currentUser.present ? (
+      <button type="button" onClick={_signOut}>
+        Sign out
       </button>
-      &nbsp;
-      <button type="button" onClick={() => signIn(true)}>
-        Google sign in
-      </button>
-      &nbsp;
-      <button type="button" onClick={() => signIn(true)}>
-        Facebook sign in
-      </button>
-    </>
-  )
+    ) : (
+      <>
+        <button type="button" onClick={onSignInLocal}>
+          Sign in
+        </button>
+        &nbsp;
+        <button type="button" onClick={_signInGoogle}>
+          Google sign in
+        </button>
+        &nbsp;
+        <button type="button" onClick={_signInFacebook}>
+          Facebook sign in
+        </button>
+      </>
+    )
 
   return (
     <div>
       <h1>Backend Tests</h1>
-      <p>{text}</p>
-      {renderButtons}
+      <p>{renderText()}</p>
+      {renderButtons()}
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  console.log(state)
-  return state
+BackendTests.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  getCurrentUser: PropTypes.func.isRequired,
+  signInLocal: PropTypes.func.isRequired,
+  signInGoogle: PropTypes.func.isRequired,
+  signInFacebook: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired
 }
 
-export default connect(mapStateToProps)(BackendTest)
+const mapStateToProps = ({ auth: { currentUser } }) => {
+  return { currentUser }
+}
+
+export default connect(mapStateToProps, {
+  getCurrentUser,
+  signInLocal,
+  signInGoogle,
+  signInFacebook,
+  signOut
+})(BackendTests)
