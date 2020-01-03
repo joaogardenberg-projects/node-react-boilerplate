@@ -14,6 +14,7 @@ const config = {
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   GOOGLE_CALLBACK_URL: `${BASE_FRONTEND_URL}/auth/callback`,
+  JWT_KEY: process.env.JWT_KEY,
   JWT_SECRET: process.env.JWT_SECRET,
   MONGODB_URI: process.env.MONGODB_URI,
   PASSWORD_PEPPER: process.env.PASSWORD_PEPPER,
