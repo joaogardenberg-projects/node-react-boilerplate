@@ -3,7 +3,7 @@ const validation = require('./validations/user')
 const Schema = require('./schema')
 const ImageSchema = require('./image')
 const methods = require('./methods/user')
-const { LOGIN_PROVIDERS } = require('../../config/constants')
+const { SIGN_IN_PROVIDERS } = require('../../config/constants')
 
 const UserSchema = Schema(
   {
@@ -35,10 +35,10 @@ const UserSchema = Schema(
       ...validation.oauthEmail,
       type: String
     },
-    loginProvider: {
-      ...validation.loginProvider,
+    signInProvider: {
+      ...validation.signInProvider,
       type: String,
-      default: LOGIN_PROVIDERS[0]
+      default: SIGN_IN_PROVIDERS[0]
     },
     admin: {
       ...validation.admin,

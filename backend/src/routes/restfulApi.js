@@ -1,11 +1,11 @@
-const requireLogin = require('../middlewares/requireLogin')
+const requireSignIn = require('../middlewares/requireSignIn')
 const requireAdmin = require('../middlewares/requireAdmin')
 
 module.exports = ({
   app,
   routeName,
   controller,
-  requireLoginRoutes = [],
+  requireSignInRoutes = [],
   requireAdminRoutes = []
 }) => {
   const middlewares = {
@@ -17,7 +17,7 @@ module.exports = ({
   }
 
   requireAdminRoutes.forEach((route) => middlewares[route].push(requireAdmin))
-  requireLoginRoutes.forEach((route) => middlewares[route].push(requireLogin))
+  requireSignInRoutes.forEach((route) => middlewares[route].push(requireSignIn))
 
   app.get(`/${routeName}`, ...middlewares.index, controller.index)
   app.get(`/${routeName}/:id`, ...middlewares.show, controller.show)

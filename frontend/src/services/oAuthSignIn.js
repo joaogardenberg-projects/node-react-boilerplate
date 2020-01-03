@@ -15,7 +15,7 @@ export default (type) =>
 
     window.open(
       `${BASE_URL}/auth/${type}`,
-      `${type} login`,
+      `${type} sign in`,
       'toolbar=no, menubar=no, width=600, height=700, top=100, left=100'
     )
 

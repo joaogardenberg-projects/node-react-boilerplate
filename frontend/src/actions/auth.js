@@ -1,5 +1,5 @@
 import API from '../services/api'
-import oAuthLogin from '../services/oAuthLogin'
+import oAuthSignIn from '../services/oAuthSignIn'
 import { setAuthToken, removeAuthToken } from '../services/authToken'
 import {
   GET_CURRENT_USER_SENT,
@@ -58,7 +58,7 @@ export const signInLocal = ({ email, password }) => async (dispatch) => {
 export const signInGoogle = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_GOOGLE_SENT })
-    const { data: queryString } = await oAuthLogin('google')
+    const { data: queryString } = await oAuthSignIn('google')
 
     const {
       data: { user, token }
@@ -79,7 +79,7 @@ export const signInGoogle = () => async (dispatch) => {
 export const signInFacebook = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_FACEBOOK_SENT })
-    const { data: queryString } = await oAuthLogin('facebook')
+    const { data: queryString } = await oAuthSignIn('facebook')
 
     const {
       data: { user, token }

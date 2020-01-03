@@ -1,41 +1,41 @@
 const currentUserService = require('../services/auth/currentUser')
-const loginService = require('../services/auth/login')
-const logoutService = require('../services/auth/logout')
+const signInService = require('../services/auth/signIn')
+const signOutService = require('../services/auth/signOut')
 
 async function currentUser(req, res) {
   res.send(await currentUserService(req, res))
 }
 
-async function login(req, res) {
-  res.send(await loginService(req, res, 'local'))
+async function signIn(req, res) {
+  res.send(await signInService(req, res, 'local'))
 }
 
-function loginGoogle(req, res) {
-  loginService(req, res, 'google', { scope: ['openid', 'profile', 'email'] })
+function signInGoogle(req, res) {
+  signInService(req, res, 'google', { scope: ['openid', 'profile', 'email'] })
 }
 
-function loginFacebook(req, res) {
-  loginService(req, res, 'facebook', { scope: ['email'], display: 'popup' })
+function signInFacebook(req, res) {
+  signInService(req, res, 'facebook', { scope: ['email'], display: 'popup' })
 }
 
 async function googleCallback(req, res) {
-  res.send(await loginService(req, res, 'google'))
+  res.send(await signInService(req, res, 'google'))
 }
 
 async function facebookCallback(req, res) {
-  res.send(await loginService(req, res, 'facebook'))
+  res.send(await signInService(req, res, 'facebook'))
 }
 
-async function logout(req, res) {
-  res.send(await logoutService(req))
+async function signOut(req, res) {
+  res.send(await signOutService(req))
 }
 
 module.exports = {
   currentUser,
-  login,
-  loginGoogle,
-  loginFacebook,
+  signIn,
+  signInGoogle,
+  signInFacebook,
   googleCallback,
   facebookCallback,
-  logout
+  signOut
 }

@@ -6,7 +6,7 @@ module.exports = (app) => {
     app,
     routeName: 'users',
     controller: UsersController,
-    requireLoginRoutes: [],
+    requireSignInRoutes: [],
     requireAdminRoutes: ['index', 'show', 'create', 'update', 'destroy']
   })
 }

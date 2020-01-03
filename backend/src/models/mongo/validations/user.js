@@ -1,5 +1,5 @@
 const { EMAIL_REGEX } = require('../../../config/regex')
-const { LOGIN_PROVIDERS } = require('../../../config/constants')
+const { SIGN_IN_PROVIDERS } = require('../../../config/constants')
 
 module.exports = {
   name: {
@@ -12,7 +12,7 @@ module.exports = {
     sparse: true,
     required: [
       function() {
-        return this.loginProvider === 'local'
+        return this.signInProvider === 'local'
       },
       'Email required'
     ],
@@ -21,7 +21,7 @@ module.exports = {
   password: {
     required: [
       function() {
-        return this.loginProvider === 'local'
+        return this.signInProvider === 'local'
       },
       'Password required'
     ]
@@ -29,7 +29,7 @@ module.exports = {
   googleId: {
     required: [
       function() {
-        return this.loginProvider === 'google'
+        return this.signInProvider === 'google'
       },
       'Google ID required'
     ]
@@ -37,7 +37,7 @@ module.exports = {
   facebookId: {
     required: [
       function() {
-        return this.loginProvider === 'facebook'
+        return this.signInProvider === 'facebook'
       },
       'Facebook ID required'
     ]
@@ -45,10 +45,10 @@ module.exports = {
   oauthEmail: {
     match: [EMAIL_REGEX, 'Invalid email']
   },
-  loginProvider: {
-    required: [true, 'Login provider required'],
+  signInProvider: {
+    required: [true, 'Sign in provider required'],
     enum: {
-      values: LOGIN_PROVIDERS,
+      values: SIGN_IN_PROVIDERS,
       message: 'Only local, google, and facebook allowed'
     }
   },

@@ -1,5 +1,5 @@
-const LOGIN_PROVIDERS = ['local', 'google', 'facebook']
+const SIGN_IN_PROVIDERS = ['local', 'google', 'facebook']
 
 module.exports = {
-  LOGIN_PROVIDERS
+  SIGN_IN_PROVIDERS
 }

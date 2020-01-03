@@ -8,7 +8,7 @@ module.exports = ({
   googleId,
   facebookId,
   oauthEmail,
-  loginProvider,
+  signInProvider,
   admin,
   createdAt,
   updatedAt
@@ -20,7 +20,7 @@ module.exports = ({
   googleId,
   facebookId,
   oauthEmail,
-  loginProvider,
+  signInProvider,
   admin,
   createdAt,
   updatedAt

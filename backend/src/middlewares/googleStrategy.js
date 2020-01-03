@@ -24,7 +24,7 @@ module.exports = (passport, User) => {
             ? emails.find(({ value, verified }) => verified && value)
             : { value: undefined }
 
-        User.findOne({ googleId, loginProvider: 'google' }, (err, user) => {
+        User.findOne({ googleId, signInProvider: 'google' }, (err, user) => {
           if (err) {
             return done(err, user, { message: 'Something went wrong' })
           }
@@ -65,7 +65,7 @@ module.exports = (passport, User) => {
                   : undefined,
                 googleId,
                 oauthEmail,
-                loginProvider: 'google'
+                signInProvider: 'google'
               },
               (_err, _user) => {
                 _err

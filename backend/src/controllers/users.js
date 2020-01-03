@@ -16,7 +16,7 @@ const permittedAttrs = ({
   googleId,
   facebookId,
   oauthEmail,
-  loginProvider,
+  signInProvider,
   admin
 } = {}) =>
   pickBy(
@@ -29,7 +29,7 @@ const permittedAttrs = ({
       googleId,
       facebookId,
       oauthEmail,
-      loginProvider,
+      signInProvider,
       admin
     },
     identity
