@@ -21,21 +21,20 @@ const config = {
   REDIS_URI: process.env.REDIS_URI
 }
 
-let defaultsFile
 let defaults = {}
 
 try {
-  defaultsFile = require('yaml').parse(
+  const defaultsFile = require('yaml').parse(
     fs.readFileSync('../docker-compose.yml', 'utf8')
   )
-} catch (e) {}
 
-if (defaultsFile) {
-  defaults = defaultsFile.services.backend.environment.reduce((acc, cur) => {
-    const [key, value] = cur.split('=')
-    return { ...acc, [key]: value }
-  }, {})
-}
+  if (defaultsFile) {
+    defaults = defaultsFile.services.backend.environment.reduce((acc, cur) => {
+      const [key, value] = cur.split('=')
+      return { ...acc, [key]: value }
+    }, {})
+  }
+} catch (e) {}
 
 Object.keys(config).forEach((key) => {
   const value = config[key]
