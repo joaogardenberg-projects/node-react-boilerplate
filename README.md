@@ -6,16 +6,8 @@ It has a backend project structure inspired by [Ruby on Rails](https://rubyonrai
 
 ## TO-DOS
 
-### Backend
-
-- Make user self-editing endpoints and services
-
 ### Frontend
 
-- Make users action creators and reducers
-- Make users tests in the backend tests page
-- Make user self-editing action creators and reducers
-- Make user self-editing tests in the backend tests page
 - Add translations
 
 ## Getting Started
@@ -74,7 +66,7 @@ $ docker-compose up -d
 
 - Also has the option for signing in/up with [Google](https://developers.google.com/identity/protocols/OAuth2) and [Facebook](https://developers.facebook.com/docs/facebook-login/web/) (all managed by [Passport](http://www.passportjs.org/)).
 
-- Has middlewares for requiring user login and/or being an admin.
+- Has middlewares for requiring user sign in and/or being an admin.
 
 - Has regexes for testing emails and urls ([regex.js](/backend/src/config/regex.js)).
 
