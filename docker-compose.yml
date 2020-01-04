@@ -6,7 +6,6 @@ services:
       dockerfile: ./frontend/Dockerfile
     volumes:
       - ./frontend/src:/app/src
-      - ./docker-compose.yml:/app/docker-compose.yml
       - /app/node_modules
     ports:
       - 3000:3000
