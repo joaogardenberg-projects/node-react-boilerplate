@@ -19,18 +19,23 @@ const config = {
 
 let defaults = {}
 
-try {
-  const defaultsFile = require('yaml').parse(
-    fs.readFileSync('../docker-compose.yml', 'utf8')
-  )
+if (config.NODE_ENV === 'development') {
+  try {
+    const defaultsFile = require('yaml').parse(
+      fs.readFileSync('../docker-compose.yml', 'utf8')
+    )
 
-  if (defaultsFile) {
-    defaults = defaultsFile.services.backend.environment.reduce((acc, cur) => {
-      const [key, value] = cur.split('=')
-      return { ...acc, [key]: value }
-    }, {})
-  }
-} catch (e) {}
+    if (defaultsFile) {
+      defaults = defaultsFile.services.backend.environment.reduce(
+        (acc, cur) => {
+          const [key, value] = cur.split('=')
+          return { ...acc, [key]: value }
+        },
+        {}
+      )
+    }
+  } catch (e) {}
+}
 
 Object.keys(config).forEach((key) => {
   const value = config[key]
