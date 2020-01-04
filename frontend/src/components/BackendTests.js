@@ -19,7 +19,7 @@ const BackendTests = ({
 }) => {
   useEffect(() => {
     !currentUser.present && !currentUser.loading && _getCurrentUser()
-  }, [_getCurrentUser])
+  }, [currentUser.present, currentUser.loading, _getCurrentUser])
 
   const onSignInLocal = () => {
     const email = prompt('Email:')
