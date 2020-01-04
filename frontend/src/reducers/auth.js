@@ -14,11 +14,20 @@ import {
   SIGN_IN_FACEBOOK_FAILED,
   SIGN_OUT_SENT,
   SIGN_OUT_SUCCEEDED,
-  SIGN_OUT_FAILED
+  SIGN_OUT_FAILED,
+  UPDATE_CURRENT_USER_SENT,
+  UPDATE_CURRENT_USER_SUCCEEDED,
+  UPDATE_CURRENT_USER_FAILED,
+  UPDATE_USER_SUCCEEDED,
+  DESTROY_USER_SUCCEEDED
 } from '../actions/types'
 
+const INITIAL_USER_STATE = { isFetching: false }
+
 const INITIAL_STATE = {
-  currentUser: { fetching: false, present: false, data: {} }
+  isFetching: false,
+  isPresent: false,
+  currentUser: INITIAL_USER_STATE
 }
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -28,32 +37,55 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case SIGN_IN_GOOGLE_SENT:
     case SIGN_IN_FACEBOOK_SENT:
     case SIGN_OUT_SENT:
-      return update(state, { currentUser: { fetching: { $set: true } } })
+      return update(state, { isFetching: { $set: true } })
+
+    case UPDATE_CURRENT_USER_SENT:
+      return update(state, { currentUser: { isFetching: { $set: true } } })
+
     case GET_CURRENT_USER_SUCCEEDED:
     case SIGN_IN_LOCAL_SUCCEEDED:
     case SIGN_IN_GOOGLE_SUCCEEDED:
     case SIGN_IN_FACEBOOK_SUCCEEDED:
       return update(state, {
-        currentUser: {
-          fetching: { $set: false },
-          present: { $set: true },
-          data: { $set: payload }
-        }
+        isFetching: { $set: false },
+        isPresent: { $set: true },
+        currentUser: { $set: update(INITIAL_USER_STATE, { $merge: payload }) }
       })
+
+    case UPDATE_CURRENT_USER_SUCCEEDED:
+      return update(state, {
+        currentUser: { $set: update(INITIAL_USER_STATE, { $merge: payload }) }
+      })
+
+    case UPDATE_USER_SUCCEEDED:
+      if (state.currentUser.id === payload.id) {
+        return update(state, {
+          currentUser: { $set: update(INITIAL_USER_STATE, { $merge: payload }) }
+        })
+      }
+
+      return state
+
+    case DESTROY_USER_SUCCEEDED:
+      if (state.currentUser.id === payload.id) {
+        return update(state, { $set: INITIAL_STATE })
+      }
+
+      return state
+
     case GET_CURRENT_USER_FAILED:
     case SIGN_IN_LOCAL_FAILED:
     case SIGN_IN_GOOGLE_FAILED:
     case SIGN_IN_FACEBOOK_FAILED:
     case SIGN_OUT_SUCCEEDED:
-      return update(state, {
-        currentUser: {
-          fetching: { $set: false },
-          present: { $set: false },
-          data: { $set: {} }
-        }
-      })
+      return update(state, { $set: INITIAL_STATE })
+
     case SIGN_OUT_FAILED:
-      return update(state, { currentUser: { fetching: { $set: false } } })
+      return update(state, { isFetching: { $set: false } })
+
+    case UPDATE_CURRENT_USER_FAILED:
+      return update(state, { currentUser: { isFetching: { $set: false } } })
+
     default:
       return state
   }
