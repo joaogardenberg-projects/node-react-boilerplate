@@ -1,4 +1,4 @@
-import { BASE_URL } from './api'
+import config from '../config'
 
 export default (type) =>
   new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ export default (type) =>
     window.removeEventListener('message', _resolve)
 
     window.open(
-      `${BASE_URL}/auth/${type}`,
+      `${config.BASE_BACKEND_URL}/auth/${type}`,
       `${type} sign in`,
       'toolbar=no, menubar=no, width=600, height=700, top=100, left=100'
     )
