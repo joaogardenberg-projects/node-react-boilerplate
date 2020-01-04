@@ -2,22 +2,37 @@ import config from '../config'
 
 export default (type) =>
   new Promise((resolve, reject) => {
-    const timeout = setTimeout(() => {
-      reject(null)
-    }, 30000)
+    window.removeEventListener('message', onMessageReceived)
 
-    const _resolve = (event) => {
-      clearTimeout(timeout)
-      resolve(event)
-    }
-
-    window.removeEventListener('message', _resolve)
-
-    window.open(
+    const openedWindow = window.open(
       `${config.BASE_BACKEND_URL}/auth/${type}`,
       `${type} sign in`,
       'toolbar=no, menubar=no, width=600, height=700, top=100, left=100'
     )
 
-    window.addEventListener('message', (event) => _resolve(event), false)
+    const timeout = setTimeout(() => {
+      clearStuff()
+      reject({ reason: 'Timeout' })
+    }, 60000)
+
+    const interval = setInterval(() => {
+      if (openedWindow.closed) {
+        clearStuff()
+        reject({ reason: 'Window closed' })
+      }
+    }, 1000)
+
+    window.addEventListener('message', onMessageReceived, false)
+
+    function onMessageReceived({ data }) {
+      clearStuff()
+      resolve(data)
+    }
+
+    function clearStuff() {
+      window.removeEventListener('message', onMessageReceived)
+      clearTimeout(timeout)
+      clearInterval(interval)
+      openedWindow.close()
+    }
   })
