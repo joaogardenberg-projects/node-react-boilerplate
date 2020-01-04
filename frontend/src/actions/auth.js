@@ -22,9 +22,9 @@ import {
 export const getCurrentUser = () => async (dispatch) => {
   try {
     dispatch({ type: GET_CURRENT_USER_SENT })
-    const { data: user } = await API.get('/auth')
+    const { status, data: user } = await API.get('/auth')
 
-    if (!user) {
+    if (!user || status !== 200) {
       throw new Error(user)
     }
 
@@ -40,10 +40,11 @@ export const signInLocal = ({ email, password }) => async (dispatch) => {
     dispatch({ type: SIGN_IN_LOCAL_SENT })
 
     const {
+      status,
       data: { user, token }
     } = await API.post('/auth', { email, password })
 
-    if (!user || !token) {
+    if (!user || !token || status !== 200) {
       throw new Error({ user, token })
     }
 
@@ -58,13 +59,21 @@ export const signInLocal = ({ email, password }) => async (dispatch) => {
 export const signInGoogle = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_GOOGLE_SENT })
-    const { data: queryString } = await oAuthSignIn('google')
+
+    const { status: statusOAuth, data: queryString } = await oAuthSignIn(
+      'google'
+    )
+
+    if (!queryString || statusOAuth !== 200) {
+      throw new Error(queryString)
+    }
 
     const {
+      status,
       data: { user, token }
     } = await API.get(`/auth/google/callback${queryString}`)
 
-    if (!user || !token) {
+    if (!user || !token || status !== 200) {
       throw new Error({ user, token })
     }
 
@@ -79,13 +88,21 @@ export const signInGoogle = () => async (dispatch) => {
 export const signInFacebook = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_IN_FACEBOOK_SENT })
-    const { data: queryString } = await oAuthSignIn('facebook')
+
+    const { status: statusOAuth, data: queryString } = await oAuthSignIn(
+      'facebook'
+    )
+
+    if (!queryString || statusOAuth !== 200) {
+      throw new Error(queryString)
+    }
 
     const {
+      status,
       data: { user, token }
     } = await API.get(`/auth/facebook/callback${queryString}`)
 
-    if (!user || !token) {
+    if (!user || !token || status !== 200) {
       throw new Error({ user, token })
     }
 
@@ -102,11 +119,12 @@ export const signOut = () => async (dispatch) => {
     dispatch({ type: SIGN_OUT_SENT })
 
     const {
+      status,
       data: { success }
     } = await API.delete('/auth')
 
-    if (!success) {
-      throw new Error()
+    if (!success || status !== 200) {
+      throw new Error(success)
     }
 
     removeAuthToken()
