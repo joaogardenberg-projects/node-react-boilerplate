@@ -31,8 +31,8 @@ const UserSchema = Schema(
       ...validation.facebookId,
       type: String
     },
-    oauthEmail: {
-      ...validation.oauthEmail,
+    oAuthEmail: {
+      ...validation.oAuthEmail,
       type: String
     },
     signInProvider: {

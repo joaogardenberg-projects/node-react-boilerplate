@@ -42,7 +42,7 @@ module.exports = {
       'Facebook ID required'
     ]
   },
-  oauthEmail: {
+  oAuthEmail: {
     match: [EMAIL_REGEX, 'Invalid email']
   },
   signInProvider: {

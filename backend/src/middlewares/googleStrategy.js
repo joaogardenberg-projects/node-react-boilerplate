@@ -19,7 +19,7 @@ module.exports = (passport, User) => {
             ? photos.find(({ value }) => value)
             : { value: undefined }
 
-        const { value: oauthEmail } =
+        const { value: oAuthEmail } =
           emails && emails.length
             ? emails.find(({ value, verified }) => verified && value)
             : { value: undefined }
@@ -33,20 +33,20 @@ module.exports = (passport, User) => {
             if (
               (name && user.name !== name) ||
               (picture && (user.picture || {}).url !== picture) ||
-              (oauthEmail && user.oauthEmail !== oauthEmail)
+              (oAuthEmail && user.oAuthEmail !== oAuthEmail)
             ) {
               const newName = name || user.name
               const newPicture =
                 picture && (user.picture || {}).url !== picture
                   ? { url: picture, alt: `${name || 'User'}'s picture` }
                   : user.picture
-              const newOauthEmail = oauthEmail || user.oauthEmail
+              const newOAuthEmail = oAuthEmail || user.oAuthEmail
 
               user
                 .set({
                   name: newName,
                   picture: newPicture,
-                  oauthEmail: newOauthEmail
+                  oAuthEmail: newOAuthEmail
                 })
                 .save((_err, _user) => {
                   _err
@@ -64,7 +64,7 @@ module.exports = (passport, User) => {
                   ? { url: picture, alt: `${name || 'User'}'s picture` }
                   : undefined,
                 googleId,
-                oauthEmail,
+                oAuthEmail,
                 signInProvider: 'google'
               },
               (_err, _user) => {

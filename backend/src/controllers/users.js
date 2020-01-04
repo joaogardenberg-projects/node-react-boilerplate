@@ -15,7 +15,7 @@ const permittedAttrs = ({
   password,
   googleId,
   facebookId,
-  oauthEmail,
+  oAuthEmail,
   signInProvider,
   admin
 } = {}) =>
@@ -28,7 +28,7 @@ const permittedAttrs = ({
       password,
       googleId,
       facebookId,
-      oauthEmail,
+      oAuthEmail,
       signInProvider,
       admin
     },
