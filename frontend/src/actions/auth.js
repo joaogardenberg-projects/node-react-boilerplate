@@ -100,7 +100,15 @@ export const signInFacebook = () => async (dispatch) => {
 export const signOut = () => async (dispatch) => {
   try {
     dispatch({ type: SIGN_OUT_SENT })
-    await API.delete('/auth')
+
+    const {
+      data: { success }
+    } = await API.delete('/auth')
+
+    if (!success) {
+      throw new Error()
+    }
+
     removeAuthToken()
     dispatch({ type: SIGN_OUT_SUCCEEDED })
   } catch (e) {
