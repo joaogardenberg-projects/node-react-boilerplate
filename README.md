@@ -8,7 +8,7 @@ It has a backend project structure inspired by [Ruby on Rails](https://rubyonrai
 
 ### Frontend
 
-- Add translations
+- Add code splitting
 
 ## Getting Started
 
