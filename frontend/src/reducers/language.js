@@ -1,8 +1,4 @@
-import {
-  setStorageLanguage,
-  getStorageLocalLanguage,
-  setStorageLocalLanguage
-} from '../services/language'
+import { setStorageLanguage, getStorageLanguage } from '../services/language'
 import { setI18nLanguage } from '../services/i18n'
 import {
   GET_CURRENT_USER_SUCCEEDED,
@@ -15,10 +11,9 @@ import {
   SET_LOCAL_LANGUAGE
 } from '../actions/types'
 
-export default (state = getStorageLocalLanguage(), { type, payload }) => {
+export default (state = getStorageLanguage(), { type, payload }) => {
   switch (type) {
     case SET_LOCAL_LANGUAGE:
-      setStorageLocalLanguage(payload)
       setStorageLanguage(payload)
       setI18nLanguage(payload)
       return payload
@@ -34,11 +29,6 @@ export default (state = getStorageLocalLanguage(), { type, payload }) => {
 
     case SIGN_OUT_SUCCEEDED:
     case DESTROY_CURRENT_USER_SUCCEEDED:
-      const localLanguage = getStorageLocalLanguage()
-      setStorageLanguage(localLanguage)
-      setI18nLanguage(localLanguage)
-      return localLanguage
-
     default:
       return state
   }
