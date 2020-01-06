@@ -18,7 +18,8 @@ const permittedAttrs = ({
   facebookId,
   oAuthEmail,
   signInProvider,
-  admin
+  admin,
+  language
 } = {}) =>
   pickBy(
     {
@@ -31,7 +32,8 @@ const permittedAttrs = ({
       facebookId,
       oAuthEmail,
       signInProvider,
-      admin
+      admin,
+      language
     },
     identity
   )

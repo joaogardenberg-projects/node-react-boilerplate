@@ -15,8 +15,7 @@ import {
   UPDATE_USER_FAILED,
   DESTROY_USER_SENT,
   DESTROY_USER_SUCCEEDED,
-  DESTROY_USER_FAILED,
-  UPDATE_CURRENT_USER_SUCCEEDED
+  DESTROY_USER_FAILED
 } from '../actions/types'
 
 const INITIAL_STATE = {
@@ -92,7 +91,6 @@ export default (state = INITIAL_STATE, { type, payload }) => {
 
     case FETCH_USER_SUCCEEDED:
     case UPDATE_USER_SUCCEEDED:
-    case UPDATE_CURRENT_USER_SUCCEEDED:
       return update(state, {
         records: {
           [payload.id]: {

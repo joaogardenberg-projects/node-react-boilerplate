@@ -14,7 +14,9 @@ import {
   UPDATE_USER_FAILED,
   DESTROY_USER_SENT,
   DESTROY_USER_SUCCEEDED,
-  DESTROY_USER_FAILED
+  DESTROY_USER_FAILED,
+  UPDATE_CURRENT_USER_SUCCEEDED,
+  DESTROY_CURRENT_USER_SUCCEEDED
 } from './types'
 
 export const fetchUsers = ({ page, limit, query, sort } = {}) => async (
@@ -53,21 +55,32 @@ export const createUser = ({ fields } = {}) => async (dispatch) => {
   }
 }
 
-export const updateUser = ({ id, fields } = {}) => async (dispatch) => {
+export const updateUser = ({ id, fields } = {}) => async (
+  dispatch,
+  getState
+) => {
   try {
     dispatch({ type: UPDATE_USER_SENT, payload: { id, fields } })
     const { data: user } = await api.put(`/users/${id}`, fields)
     dispatch({ type: UPDATE_USER_SUCCEEDED, payload: user })
+
+    if (user.id === getState().auth.currentUser.id) {
+      dispatch({ type: UPDATE_CURRENT_USER_SUCCEEDED, payload: user })
+    }
   } catch (e) {
     dispatch({ type: UPDATE_USER_FAILED, payload: { id } })
   }
 }
 
-export const destroyUser = ({ id } = {}) => async (dispatch) => {
+export const destroyUser = ({ id } = {}) => async (dispatch, getState) => {
   try {
     dispatch({ type: DESTROY_USER_SENT, payload: { id } })
     const { data: user } = await api.delete(`/users/${id}`)
     dispatch({ type: DESTROY_USER_SUCCEEDED, payload: user })
+
+    if (user.id === getState().auth.currentUser.id) {
+      dispatch({ type: DESTROY_CURRENT_USER_SUCCEEDED, payload: user })
+    }
   } catch (e) {
     dispatch({ type: DESTROY_USER_FAILED, payload: { id } })
   }

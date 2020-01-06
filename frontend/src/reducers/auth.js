@@ -18,8 +18,9 @@ import {
   UPDATE_CURRENT_USER_SENT,
   UPDATE_CURRENT_USER_SUCCEEDED,
   UPDATE_CURRENT_USER_FAILED,
-  UPDATE_USER_SUCCEEDED,
-  DESTROY_USER_SUCCEEDED
+  DESTROY_CURRENT_USER_SENT,
+  DESTROY_CURRENT_USER_SUCCEEDED,
+  DESTROY_CURRENT_USER_FAILED
 } from '../actions/types'
 
 const INITIAL_USER_STATE = { isFetching: false }
@@ -57,27 +58,12 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         currentUser: { $set: update(INITIAL_USER_STATE, { $merge: payload }) }
       })
 
-    case UPDATE_USER_SUCCEEDED:
-      if (state.currentUser.id === payload.id) {
-        return update(state, {
-          currentUser: { $set: update(INITIAL_USER_STATE, { $merge: payload }) }
-        })
-      }
-
-      return state
-
-    case DESTROY_USER_SUCCEEDED:
-      if (state.currentUser.id === payload.id) {
-        return update(state, { $set: INITIAL_STATE })
-      }
-
-      return state
-
     case GET_CURRENT_USER_FAILED:
     case SIGN_IN_LOCAL_FAILED:
     case SIGN_IN_GOOGLE_FAILED:
     case SIGN_IN_FACEBOOK_FAILED:
     case SIGN_OUT_SUCCEEDED:
+    case DESTROY_CURRENT_USER_SUCCEEDED:
       return update(state, { $set: INITIAL_STATE })
 
     case SIGN_OUT_FAILED:
@@ -86,6 +72,8 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case UPDATE_CURRENT_USER_FAILED:
       return update(state, { currentUser: { isFetching: { $set: false } } })
 
+    case DESTROY_CURRENT_USER_SENT:
+    case DESTROY_CURRENT_USER_FAILED:
     default:
       return state
   }

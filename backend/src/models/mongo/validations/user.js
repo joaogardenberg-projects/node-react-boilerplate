@@ -1,5 +1,5 @@
 const { EMAIL_REGEX } = require('../../../config/regex')
-const { SIGN_IN_PROVIDERS } = require('../../../config/constants')
+const { SIGN_IN_PROVIDERS, LANGUAGES } = require('../../../config/constants')
 
 module.exports = {
   name: {
@@ -54,6 +54,13 @@ module.exports = {
   },
   admin: {
     required: [true, 'Admin or not?']
+  },
+  language: {
+    required: [true, 'Language required'],
+    enum: {
+      values: LANGUAGES,
+      message: 'Invalid language'
+    }
   },
   createdAt: {
     required: true

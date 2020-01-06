@@ -23,11 +23,14 @@ module.exports = { update }
 
 const permittedAttrs = (
   { signInProvider },
-  { name, picture, pictureUpload, email, password } = {}
+  { name, picture, pictureUpload, email, password, language } = {}
 ) => {
   if (signInProvider === 'local') {
-    return pickBy({ name, picture, pictureUpload, email, password }, identity)
+    return pickBy(
+      { name, picture, pictureUpload, email, password, language },
+      identity
+    )
   }
 
-  return pickBy({ name, picture, pictureUpload }, identity)
+  return pickBy({ name, picture, pictureUpload, language }, identity)
 }

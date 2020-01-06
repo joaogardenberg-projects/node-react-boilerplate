@@ -1,3 +1,4 @@
+import { t } from 'ttag'
 import config from '../config'
 
 export default (type) =>
@@ -12,13 +13,13 @@ export default (type) =>
 
     const timeout = setTimeout(() => {
       clearStuff()
-      reject({ reason: 'Timeout' })
+      reject({ reason: t`Timeout` })
     }, 60000)
 
     const interval = setInterval(() => {
       if (openedWindow.closed) {
         clearStuff()
-        reject({ reason: 'Window closed' })
+        reject({ reason: t`Window closed` })
       }
     }, 1000)
 

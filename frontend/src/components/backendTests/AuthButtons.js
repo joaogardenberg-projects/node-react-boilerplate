@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { t } from 'ttag'
 import {
   signInLocal,
   signInGoogle,
@@ -16,39 +17,39 @@ const AuthButtons = ({
   signOut: _signOut
 }) => {
   const onSignInLocalClick = () => {
-    const email = prompt('Email:', 'initial@user.com')
-    const password = prompt('Password:', 'initial')
+    const email = prompt(t`Email`, 'initial@user.com')
+    const password = prompt(t`Password`, 'initial')
     _signInLocal({ email, password })
   }
 
   const renderText = () =>
     auth.isFetching
-      ? 'Loading...'
+      ? `${t`Loading`}...`
       : auth.isPresent
       ? auth.currentUser.admin
-        ? "Congratulations, you're signed in. Oh, and you're an admin!"
-        : "Congratulations, you're signed in!"
-      : "You're not signed in."
+        ? t`Congratulations, you're signed in. Oh, and you're an admin!`
+        : t`Congratulations, you're signed in!`
+      : t`You're not signed in.`
 
   return (
     <div className="auth-buttons">
-      <h3>Auth</h3>
+      <h3>{t`Auth`}</h3>
       {auth.isFetching ? null : auth.isPresent ? (
         <button type="button" onClick={_signOut}>
-          Sign out
+          {t`Sign out`}
         </button>
       ) : (
         <>
           <button type="button" onClick={onSignInLocalClick}>
-            Sign in
+            {t`Sign in`}
           </button>
           &nbsp;
           <button type="button" onClick={_signInGoogle}>
-            Google sign in
+            {t`Google sign in`}
           </button>
           &nbsp;
           <button type="button" onClick={_signInFacebook}>
-            Facebook sign in
+            {t`Facebook sign in`}
           </button>
         </>
       )}
@@ -65,7 +66,7 @@ AuthButtons.propTypes = {
   signOut: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ auth }) => ({ auth })
+const mapStateToProps = ({ auth, language }) => ({ auth, language })
 
 export default connect(mapStateToProps, {
   signInLocal,

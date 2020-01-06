@@ -45,6 +45,11 @@ const UserSchema = Schema(
       type: Boolean,
       default: false
     },
+    language: {
+      ...validation.language,
+      type: String,
+      default: 'en'
+    },
     createdAt: {
       ...validation.createdAt,
       type: Date

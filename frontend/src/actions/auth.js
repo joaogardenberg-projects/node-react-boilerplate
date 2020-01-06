@@ -1,3 +1,4 @@
+import { t } from 'ttag'
 import API from '../services/api'
 import oAuthSignIn from '../services/oAuthSignIn'
 import {
@@ -28,7 +29,7 @@ export const getCurrentUser = () => async (dispatch) => {
     dispatch({ type: GET_CURRENT_USER_SENT })
 
     if (!getAuthToken()) {
-      throw new Error('Not logged in')
+      throw new Error(t`Not signed in`)
     }
 
     const { data: user } = await API.get('/auth')
@@ -63,7 +64,7 @@ export const signInGoogle = () => async (dispatch) => {
     const queryString = await oAuthSignIn('google')
 
     if (!queryString) {
-      throw new Error('Something went wrong')
+      throw new Error(t`Something went wrong`)
     }
 
     const {
@@ -85,7 +86,7 @@ export const signInFacebook = () => async (dispatch) => {
     const queryString = await oAuthSignIn('facebook')
 
     if (!queryString) {
-      throw new Error('Something went wrong')
+      throw new Error(t`Something went wrong`)
     }
 
     const {
@@ -109,7 +110,7 @@ export const signOut = () => async (dispatch) => {
     } = await API.delete('/auth')
 
     if (!success) {
-      throw new Error('Something went wrong')
+      throw new Error(t`Something went wrong`)
     }
 
     removeAuthToken()

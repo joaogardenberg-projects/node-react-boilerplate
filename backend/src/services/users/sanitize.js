@@ -10,6 +10,7 @@ module.exports = ({
   oAuthEmail,
   signInProvider,
   admin,
+  language,
   createdAt,
   updatedAt
 } = {}) => ({
@@ -22,6 +23,7 @@ module.exports = ({
   oAuthEmail,
   signInProvider,
   admin,
+  language,
   createdAt,
   updatedAt
 })

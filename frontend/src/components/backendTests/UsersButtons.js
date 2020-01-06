@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { t } from 'ttag'
 import {
   fetchUsers,
   fetchUser,
@@ -22,7 +23,7 @@ const UsersButtons = ({
   }
 
   const onFetchUserClick = () => {
-    const id = window.prompt('User id:')
+    const id = window.prompt(t`User id`)
     _fetchUser({ id })
   }
 
@@ -32,25 +33,25 @@ const UsersButtons = ({
   const onCreateUserClick = () => {
     const fields = {
       email: window.prompt(
-        'User email (the password will be "initial"):',
+        t`User email (the password will be "initial"):`,
         getRandomEmail()
       ),
       password: 'initial',
-      name: "User's name"
+      name: t`User's name`
     }
     _createUser({ fields })
   }
 
   const onUpdateUserClick = () => {
-    const id = window.prompt('User id:')
+    const id = window.prompt(t`User id`)
     const fields = {
-      email: window.prompt('New email:', getRandomEmail())
+      email: window.prompt(t`New email`, getRandomEmail())
     }
     _updateUser({ id, fields })
   }
 
   const onDestroyUserClick = () => {
-    const id = window.prompt('User id:')
+    const id = window.prompt(t`User id`)
     _destroyUser({ id })
   }
 
@@ -58,19 +59,19 @@ const UsersButtons = ({
     const { isFetching, records } = users
 
     if (isFetching) {
-      return <p>Loading users...</p>
+      return <p>{t`Loading users`}...</p>
     }
 
     if (!Object.keys(records).length) {
-      return <p>No users to show. Try fetching!</p>
+      return <p>{t`No users to show. Try fetching!`}</p>
     }
 
     return (
       <table>
         <thead>
           <tr>
-            <th align="left">Name</th>
-            <th align="left">Email</th>
+            <th align="left">{t`Name`}</th>
+            <th align="left">{t`Email`}</th>
           </tr>
         </thead>
         <tbody>
@@ -95,25 +96,25 @@ const UsersButtons = ({
 
   return (
     <div className="users-buttons">
-      <h3>Users</h3>
+      <h3>{t`Users`}</h3>
       <button type="button" onClick={onFetchUsersClick}>
-        Fetch users
+        {t`Fetch users`}
       </button>
       &nbsp;
       <button type="button" onClick={onFetchUserClick}>
-        Fetch user
+        {t`Fetch user`}
       </button>
       &nbsp;
       <button type="button" onClick={onCreateUserClick}>
-        Create user
+        {t`Create user`}
       </button>
       &nbsp;
       <button type="button" onClick={onUpdateUserClick}>
-        Update user
+        {t`Update user`}
       </button>
       &nbsp;
       <button type="button" onClick={onDestroyUserClick}>
-        Destroy user
+        {t`Destroy user`}
       </button>
       {renderUsers()}
     </div>
@@ -129,9 +130,7 @@ UsersButtons.propTypes = {
   destroyUser: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ users }) => {
-  return { users }
-}
+const mapStateToProps = ({ users, language }) => ({ users, language })
 
 export default connect(mapStateToProps, {
   fetchUsers,

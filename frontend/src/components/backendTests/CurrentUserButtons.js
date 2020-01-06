@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { t } from 'ttag'
 import { updateCurrentUser } from '../../actions'
 
 const CurrentUserButtons = ({
@@ -11,24 +12,24 @@ const CurrentUserButtons = ({
     `email-${Math.floor(Math.random() * 10000) + 1}@domain.com`
 
   const onUpdateClick = () => {
-    const fields = { email: window.prompt('New email:', getRandomEmail()) }
+    const fields = { email: window.prompt(t`New email`, getRandomEmail()) }
     _updateCurrentUser({ fields })
   }
 
   const renderText = () => {
     const { isFetching, isPresent, currentUser } = auth
     return isFetching || currentUser.isFetching
-      ? 'Loading...'
+      ? `${t`Loading`}...`
       : isPresent
       ? `${currentUser.name} - ${currentUser.email || currentUser.oAuthEmail}`
-      : "You're not signed in."
+      : t`You're not signed in.`
   }
 
   return (
     <div className="user-buttons">
-      <h3>Current user</h3>
+      <h3>{t`Current user`}</h3>
       <button type="button" onClick={onUpdateClick}>
-        Update current user
+        {t`Update current user`}
       </button>
       <p>{renderText()}</p>
     </div>
@@ -40,9 +41,7 @@ CurrentUserButtons.propTypes = {
   updateCurrentUser: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ auth }) => {
-  return { auth }
-}
+const mapStateToProps = ({ auth, language }) => ({ auth, language })
 
 export default connect(mapStateToProps, { updateCurrentUser })(
   CurrentUserButtons
