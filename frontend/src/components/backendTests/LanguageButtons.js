@@ -17,6 +17,11 @@ const LanguageButtons = ({ setLanguage: _setLanguage }) => {
         type="button"
         onClick={() => _setLanguage('pt-BR')}
       >{t`Portuguese`}</button>
+      &nbsp;
+      <button
+        type="button"
+        onClick={() => _setLanguage('es')}
+      >{t`Spanish`}</button>
     </div>
   )
 }

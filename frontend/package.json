@@ -19,8 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "i18n:update": "ttag update src/config/i18n/pt-BR.po src",
-    "i18n:compile": "ttag po2json src/config/i18n/pt-BR.po > src/config/i18n/pt-BR.po.json"
+    "i18n:update": "node src/config/i18n/scripts/update.js",
+    "i18n:compile": "node src/config/i18n/scripts/compile.js"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

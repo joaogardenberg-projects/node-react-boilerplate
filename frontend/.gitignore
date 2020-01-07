@@ -9,6 +9,9 @@
 # production
 /build
 
+# locale objects
+/src/config/i18n/objects
+
 # misc
 .DS_Store
 .env.local

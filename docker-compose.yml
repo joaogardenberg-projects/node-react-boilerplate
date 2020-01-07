@@ -7,7 +7,7 @@ services:
     volumes:
       - ./frontend/src:/app/src
       - /app/node_modules
-      - /app/src/config/i18n
+      - /app/src/config/i18n/objects
     ports:
       - 3000:3000
     depends_on:

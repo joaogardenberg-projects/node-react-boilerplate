@@ -55,13 +55,13 @@ msgstr "Entrar"
 
 #: src/components/backendTests/AuthButtons.js:48
 msgid "Google sign in"
-msgstr "Entrar com Google"
+msgstr "Entrar com o Google"
 
 #: src/components/backendTests/AuthButtons.js:52
 msgid "Facebook sign in"
-msgstr "Entrar com Facebook"
+msgstr "Entrar com o Facebook"
 
-#: src/components/backendTests/BackendTests.js:11
+#: src/components/backendTests/BackendTests.js:12
 msgid "Backend Tests"
 msgstr "Testes do Backend"
 
@@ -77,6 +77,22 @@ msgstr "Usuário atual"
 #: src/components/backendTests/CurrentUserButtons.js:32
 msgid "Update current user"
 msgstr "Atualizar usuário atual"
+
+#: src/components/backendTests/LanguageButtons.js:10
+msgid "Language"
+msgstr "Idioma"
+
+#: src/components/backendTests/LanguageButtons.js:14
+msgid "English"
+msgstr "Inglês"
+
+#: src/components/backendTests/LanguageButtons.js:19
+msgid "Portuguese"
+msgstr "Português"
+
+#: src/components/backendTests/LanguageButtons.js:24
+msgid "Spanish"
+msgstr "Espanhol"
 
 #: src/components/backendTests/UsersButtons.js:26
 #: src/components/backendTests/UsersButtons.js:46
@@ -137,15 +153,3 @@ msgstr "Não está logado"
 #: src/actions/auth.js:113
 msgid "Something went wrong"
 msgstr "Alguma coisa deu errado"
-
-#: src/components/backendTests/LanguageButtons.js:14
-msgid "English"
-msgstr "Inglês"
-
-#: src/components/backendTests/LanguageButtons.js:19
-msgid "Portuguese"
-msgstr "Português"
-
-#: src/components/backendTests/LanguageButtons.js:10
-msgid "Language"
-msgstr "Idioma"
