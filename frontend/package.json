@@ -1,7 +1,27 @@
 {
   "name": "boilerplate",
+  "description": "boilerplate",
   "version": "0.1.0",
+  "author": "João Lucas da Costa Gardenberg",
   "private": true,
+  "license": "MIT",
+  "main": "src/index.js",
+  "homepage": "https://github.com/joaogardenberg-projects/boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaogardenberg-projects/boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joaogardenberg-projects/boilerplate/issues"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "i18n:update": "ttag update src/config/i18n/pt-BR.po src",
+    "i18n:compile": "ttag po2json src/config/i18n/pt-BR.po > src/config/i18n/pt-BR.po.json"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -21,14 +41,6 @@
     "redux-thunk": "^2.3.0",
     "ttag": "^1.7.22",
     "ttag-cli": "^1.7.27"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "i18n:update": "ttag update src/config/i18n/pt-BR.po src",
-    "i18n:compile": "ttag po2json src/config/i18n/pt-BR.po > src/config/i18n/pt-BR.po.json"
   },
   "eslintConfig": {
     "extends": "react-app"
