@@ -1,10 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense, lazy } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 import { getCurrentUser } from '../actions'
-import BackendTests from './backendTests/BackendTests'
-import OAuthCallback from './auth/OAuthCallback'
+
+const OAuthCallback = lazy(() => import('./auth/OAuthCallback'))
+const BackendTests = lazy(() => import('./backendTests/BackendTests'))
 
 class Routes extends Component {
   componentDidMount() {
@@ -17,10 +23,15 @@ class Routes extends Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <Route exact path="/" component={BackendTests} />
-        <Route exact path="/auth/callback" component={OAuthCallback} />
-      </BrowserRouter>
+      <Router>
+        <Suspense fallback={<div className="loading" />}>
+          <Switch>
+            <Route path="/backend_tests" component={BackendTests} />
+            <Route path="/auth/callback" component={OAuthCallback} />
+            <Redirect to="/backend_tests" />
+          </Switch>
+        </Suspense>
+      </Router>
     )
   }
 }
