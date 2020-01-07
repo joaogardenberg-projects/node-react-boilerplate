@@ -24,7 +24,7 @@
 
 - If you need to add/change environment variables for the backend service, do so in the [docker-compose.yml](docker-compose.yml) file.
 
-- If you want to see the output of the Backend service, open a terminal and type:
+- If you want to see the output of the Backend service, open a terminal and run:
 
   ```
   $ docker-compose logs -f --tail=100 backend

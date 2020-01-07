@@ -12,16 +12,22 @@
 
 - Using [ttag](https://ttag.js.org/) for the translations.
 
-- If you want to see the output of the Frontend service, open a terminal and type:
+- If you want to see the output of the Frontend service, open a terminal and run:
 
   ```
   $ docker-compose logs -f --tail=100 frontend
   ```
 
-- If you want to change the translations, edit the files inside the [i18n](/frontend/src/config/i18n) folder.
+- If you want to edit translations, the files are inside the [locales](/frontend/src/config/i18n/locales) folder.
 
-- If you don't see what you want to translate there, update it by opening a terminal and typing:
+- If you don't see what you want to translate there, update the files by opening a terminal and running:
 
   ```
   $ docker-compose exec frontend npm run i18n:update
+  ```
+
+- After changing anything in the translations files, you must compile the translations by running:
+
+  ```
+  $ docker-compose exec frontend npm run i18n:compile
   ```
