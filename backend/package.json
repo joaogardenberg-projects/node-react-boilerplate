@@ -6,13 +6,13 @@
   "private": true,
   "license": "MIT",
   "main": "src/index.js",
-  "homepage": "https://github.com/joaogardenberg-projects/boilerplate#readme",
+  "homepage": "https://github.com/joaogardenberg-projects/node-react-boilerplate#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joaogardenberg-projects/boilerplate.git"
+    "url": "git+https://github.com/joaogardenberg-projects/node-react-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/joaogardenberg-projects/boilerplate/issues"
+    "url": "https://github.com/joaogardenberg-projects/node-react-boilerplate/issues"
   },
   "scripts": {
     "dev": "nodemon -L",
