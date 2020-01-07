@@ -38,7 +38,7 @@ export const fetchUsers = ({ page, limit, query, sort } = {}) => async (
 export const fetchUser = ({ id } = {}) => async (dispatch) => {
   try {
     dispatch({ type: FETCH_USER_SENT, payload: { id } })
-    const { data: user } = await api.get(`/users/${id}`)
+    const { data: user } = await api.get(`/users/${id || undefined}`)
     dispatch({ type: FETCH_USER_SUCCEEDED, payload: user })
   } catch (e) {
     dispatch({ type: FETCH_USER_FAILED, payload: { id } })
@@ -61,7 +61,7 @@ export const updateUser = ({ id, fields } = {}) => async (
 ) => {
   try {
     dispatch({ type: UPDATE_USER_SENT, payload: { id, fields } })
-    const { data: user } = await api.put(`/users/${id}`, fields)
+    const { data: user } = await api.put(`/users/${id || undefined}`, fields)
     dispatch({ type: UPDATE_USER_SUCCEEDED, payload: user })
 
     if (user.id === getState().auth.currentUser.id) {
@@ -75,7 +75,7 @@ export const updateUser = ({ id, fields } = {}) => async (
 export const destroyUser = ({ id } = {}) => async (dispatch, getState) => {
   try {
     dispatch({ type: DESTROY_USER_SENT, payload: { id } })
-    const { data: user } = await api.delete(`/users/${id}`)
+    const { data: user } = await api.delete(`/users/${id || undefined}`)
     dispatch({ type: DESTROY_USER_SUCCEEDED, payload: user })
 
     if (user.id === getState().auth.currentUser.id) {
