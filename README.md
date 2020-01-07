@@ -4,12 +4,6 @@ A boilerplate project I built for myself to use whenever I want to start a new p
 
 It has a backend project structure inspired by [Ruby on Rails](https://rubyonrails.org/).
 
-## TO-DOS
-
-### Frontend
-
-- Add code splitting
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
