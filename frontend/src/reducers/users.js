@@ -79,6 +79,10 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case FETCH_USER_SENT:
     case UPDATE_USER_SENT:
     case DESTROY_USER_SENT:
+      if (!state.records[payload.id]) {
+        return state
+      }
+
       return update(state, {
         records: {
           [payload.id]: {
@@ -122,6 +126,10 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case FETCH_USER_FAILED:
     case UPDATE_USER_FAILED:
     case DESTROY_USER_FAILED:
+      if (!state.records[payload.id]) {
+        return state
+      }
+
       return update(state, {
         records: {
           [payload.id]: {
