@@ -25,9 +25,11 @@ export default (type) =>
 
     window.addEventListener('message', onMessageReceived, false)
 
-    function onMessageReceived({ data }) {
-      clearStuff()
-      resolve(data)
+    function onMessageReceived({ data: { type, payload, source } }) {
+      if (type === 'OAUTH' && source === 'oauth-callback') {
+        clearStuff()
+        resolve(payload)
+      }
     }
 
     function clearStuff() {
