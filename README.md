@@ -52,25 +52,7 @@ $ docker-compose up -d
 
 - Using [Passport](http://www.passportjs.org/) for the authentication.
 
-- Comes with a pre-created User model with authentication (via [Passport](http://www.passportjs.org/) + [JWT](https://jwt.io/)) and user management routes, also with an initial user:
-
-  | Email                   | Password | Admin |
-  | ----------------------- | -------- | ----- |
-  | initial@user<b></b>.com | initial  | true  |
-
-- Also has the option for signing in/up with [Google](https://developers.google.com/identity/protocols/OAuth2) and [Facebook](https://developers.facebook.com/docs/facebook-login/web/) (all managed by [Passport](http://www.passportjs.org/)).
-
-- Has middlewares for requiring user sign in and/or being an admin.
-
-- Has regexes for testing emails and urls ([regex.js](/backend/src/config/regex.js)).
-
-- If you need to add/change environment variables for the backend service, do so in the [docker-compose.yml](docker-compose.yml) file.
-
-- If you want to see the output of the Backend service, open a terminal and type:
-
-  ```
-  $ docker-compose logs -f --tail=100 backend
-  ```
+- [Documentation](/backend)
 
 ### Frontend
 
@@ -82,41 +64,15 @@ $ docker-compose up -d
 
 - Using [ttag](https://ttag.js.org/) for the translations.
 
-- If you want to see the output of the Frontend service, open a terminal and type:
+- [Documentation](/frontend)
 
-  ```
-  $ docker-compose logs -f --tail=100 frontend
-  ```
+### MongoDB and Redis
 
-### MongoDB
-
-- It's run automatically when you start docker, you don't have to do anything.
-
-- If you want to see the output of the MongoDB service, open a terminal and type:
-
-  ```
-  $ docker-compose logs -f --tail=100 mongo
-  ```
-
-### Redis
-
-- It's run automatically when you start docker, you don't have to do anything.
-
-- If you want to see the output of the Redis service, open a terminal and type:
-
-  ```
-  $ docker-compose logs -f --tail=100 redis
-  ```
+- Run automatically when you start docker, you don't have to do anything.
 
 ### Docker
 
 - Has a configuration file ([docker-compose.yml](docker-compose.yml)).
-
-- If you want to see the output from all the services together, open a terminal and type:
-
-  ```
-  $ docker-compose logs -f --tail=100
-  ```
 
 ## Authors
 
