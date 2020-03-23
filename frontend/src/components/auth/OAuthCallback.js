@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { t } from 'ttag'
 
 const OAuthCallback = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const OAuthCallback = () => {
     }
   })
 
-  return <p>Please wait...</p>
+  return <p>{t`Please wait`}...</p>
 }
 
 export default OAuthCallback
