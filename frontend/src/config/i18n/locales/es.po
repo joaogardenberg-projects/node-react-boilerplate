@@ -14,89 +14,89 @@ msgstr "Tiempo agotado"
 msgid "Window closed"
 msgstr "Ventana cerrada"
 
-#: src/components/backendTests/AuthButtons.js:20
-#: src/components/backendTests/UsersButtons.js:74
+#: src/components/backendTests/AuthButtons.js:21
+#: src/components/backendTests/UsersButtons.js:76
 msgid "Email"
 msgstr "E-mail"
 
-#: src/components/backendTests/AuthButtons.js:21
+#: src/components/backendTests/AuthButtons.js:22
 msgid "Password"
 msgstr "Contraseña"
 
-#: src/components/backendTests/AuthButtons.js:27
-#: src/components/backendTests/CurrentUserButtons.js:22
+#: src/components/backendTests/AuthButtons.js:28
+#: src/components/backendTests/CurrentUserButtons.js:26
 msgid "Loading"
 msgstr "Cargando"
 
-#: src/components/backendTests/AuthButtons.js:30
+#: src/components/backendTests/AuthButtons.js:31
 msgid "Congratulations, you're signed in. Oh, and you're an admin!"
 msgstr "Felicitaciones, estás conectado. ¡Ah, y tú eres un administrador!"
 
-#: src/components/backendTests/AuthButtons.js:31
+#: src/components/backendTests/AuthButtons.js:32
 msgid "Congratulations, you're signed in!"
 msgstr "¡Felicitaciones, estás conectado!"
 
-#: src/components/backendTests/AuthButtons.js:32
-#: src/components/backendTests/CurrentUserButtons.js:25
+#: src/components/backendTests/AuthButtons.js:33
+#: src/components/backendTests/CurrentUserButtons.js:29
 msgid "You're not signed in."
 msgstr "Usted no se ha conectado."
 
-#: src/components/backendTests/AuthButtons.js:36
+#: src/components/backendTests/AuthButtons.js:37
 msgid "Auth"
 msgstr "Autenticación"
 
-#: src/components/backendTests/AuthButtons.js:39
+#: src/components/backendTests/AuthButtons.js:40
 msgid "Sign out"
 msgstr "Cerrar sesión"
 
-#: src/components/backendTests/AuthButtons.js:44
+#: src/components/backendTests/AuthButtons.js:45
 msgid "Sign in"
 msgstr "Iniciar sesión"
 
-#: src/components/backendTests/AuthButtons.js:48
+#: src/components/backendTests/AuthButtons.js:49
 msgid "Google sign in"
 msgstr "Inicia sesión con Google"
 
-#: src/components/backendTests/AuthButtons.js:52
+#: src/components/backendTests/AuthButtons.js:53
 msgid "Facebook sign in"
 msgstr "Inicia sesión con Facebook"
 
-#: src/components/backendTests/BackendTests.js:12
+#: src/components/backendTests/BackendTests.js:11
 msgid "Backend Tests"
 msgstr "Pruebas de Backend"
 
-#: src/components/backendTests/CurrentUserButtons.js:15
-#: src/components/backendTests/UsersButtons.js:48
+#: src/components/backendTests/CurrentUserButtons.js:19
+#: src/components/backendTests/UsersButtons.js:49
 msgid "New email"
 msgstr "Nuevo e-mail"
 
-#: src/components/backendTests/CurrentUserButtons.js:30
+#: src/components/backendTests/CurrentUserButtons.js:34
 msgid "Current user"
 msgstr "Usuario actual"
 
-#: src/components/backendTests/CurrentUserButtons.js:32
+#: src/components/backendTests/CurrentUserButtons.js:36
 msgid "Update current user"
 msgstr "Actualizar usuario actual"
 
-#: src/components/backendTests/LanguageButtons.js:10
+#: src/components/backendTests/LanguageButtons.js:14
 msgid "Language"
 msgstr "Idioma"
 
-#: src/components/backendTests/LanguageButtons.js:14
+#: src/components/backendTests/LanguageButtons.js:18
 msgid "English"
 msgstr "Ingles"
 
-#: src/components/backendTests/LanguageButtons.js:19
+#: src/components/backendTests/LanguageButtons.js:23
 msgid "Portuguese"
 msgstr "Portugués"
 
-#: src/components/backendTests/LanguageButtons.js:24
+#: src/components/backendTests/LanguageButtons.js:28
 msgid "Spanish"
 msgstr "Español"
 
 #: src/components/backendTests/UsersButtons.js:26
-#: src/components/backendTests/UsersButtons.js:46
-#: src/components/backendTests/UsersButtons.js:54
+#: src/components/backendTests/UsersButtons.js:47
+#: src/components/backendTests/UsersButtons.js:56
 msgid "User id"
 msgstr "Id del usuario"
 
@@ -108,39 +108,39 @@ msgstr "E-mail del usuario (la contraseña será \"initial\")"
 msgid "User's name"
 msgstr "Nombre del usuario"
 
-#: src/components/backendTests/UsersButtons.js:62
+#: src/components/backendTests/UsersButtons.js:64
 msgid "Loading users"
 msgstr "Cargando usuarios"
 
-#: src/components/backendTests/UsersButtons.js:66
+#: src/components/backendTests/UsersButtons.js:68
 msgid "No users to show. Try fetching!"
 msgstr "No hay usuarios para mostrar. ¡Intenta cargarlos!"
 
-#: src/components/backendTests/UsersButtons.js:73
+#: src/components/backendTests/UsersButtons.js:75
 msgid "Name"
 msgstr "Nombre"
 
-#: src/components/backendTests/UsersButtons.js:99
+#: src/components/backendTests/UsersButtons.js:101
 msgid "Users"
 msgstr "Usuarios"
 
-#: src/components/backendTests/UsersButtons.js:101
+#: src/components/backendTests/UsersButtons.js:103
 msgid "Fetch users"
 msgstr "Cargar usuarios"
 
-#: src/components/backendTests/UsersButtons.js:105
+#: src/components/backendTests/UsersButtons.js:107
 msgid "Fetch user"
 msgstr "Cargar usuario"
 
-#: src/components/backendTests/UsersButtons.js:109
+#: src/components/backendTests/UsersButtons.js:111
 msgid "Create user"
 msgstr "Crear usuario"
 
-#: src/components/backendTests/UsersButtons.js:113
+#: src/components/backendTests/UsersButtons.js:115
 msgid "Update user"
 msgstr "Actualizar usuario"
 
-#: src/components/backendTests/UsersButtons.js:117
+#: src/components/backendTests/UsersButtons.js:119
 msgid "Destroy user"
 msgstr "Eliminar usuario"
 
@@ -153,3 +153,7 @@ msgstr "No ha iniciado sesión"
 #: src/actions/auth.js:113
 msgid "Something went wrong"
 msgstr "Algo salió mal"
+
+#: src/components/auth/OAuthCallback.js:16
+msgid "Please wait"
+msgstr "Por favor espera"
