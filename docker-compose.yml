@@ -17,6 +17,7 @@ services:
       - NODE_ENV=development
       - PORT=3000
       - CHOKIDAR_USEPOLLING=true
+    tty: true
   backend:
     build:
       context: .
