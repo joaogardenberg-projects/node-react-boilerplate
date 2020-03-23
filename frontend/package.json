@@ -6,7 +6,6 @@
   "private": true,
   "license": "MIT",
   "main": "src/index.js",
-  "homepage": "https://github.com/joaogardenberg-projects/node-react-boilerplate#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joaogardenberg-projects/node-react-boilerplate.git"
