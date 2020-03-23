@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   frontend:
     build:
@@ -6,6 +6,7 @@ services:
       dockerfile: ./frontend/Dockerfile
     volumes:
       - ./frontend/src:/app/src
+      - ./frontend/package.json:/app/package.json
       - /app/node_modules
       - /app/src/config/i18n/objects
     ports:
@@ -24,6 +25,7 @@ services:
       dockerfile: ./backend/Dockerfile
     volumes:
       - ./backend/src:/app/src
+      - ./backend/package.json:/app/package.json
       - ./docker-compose.yml:/app/docker-compose.yml
       - /app/node_modules
     links:
