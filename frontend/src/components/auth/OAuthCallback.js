@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { t } from 'ttag'
 
-const OAuthCallback = () => {
+export default function OAuthCallback() {
   useEffect(() => {
     if (window.opener) {
       window.opener.postMessage({
@@ -9,11 +9,10 @@ const OAuthCallback = () => {
         payload: window.location.search,
         source: 'oauth-callback'
       })
+
       window.close()
     }
   })
 
   return <p>{t`Please wait`}...</p>
 }
-
-export default OAuthCallback
