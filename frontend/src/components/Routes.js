@@ -1,6 +1,5 @@
-import React, { Component, Suspense, lazy } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import React, { useEffect, Suspense, lazy } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,35 +11,23 @@ import { getCurrentUser } from '../actions'
 const OAuthCallback = lazy(() => import('./auth/OAuthCallback'))
 const BackendTests = lazy(() => import('./backendTests/BackendTests'))
 
-class Routes extends Component {
-  componentDidMount() {
-    const {
-      auth: { isFetching, isPresent }
-    } = this.props
+export default function Routes() {
+  const dispatch = useDispatch()
+  useSelector(({ language }) => language)
 
-    !isFetching && !isPresent && this.props.getCurrentUser()
-  }
+  useEffect(() => {
+    dispatch(getCurrentUser())
+  }, [dispatch])
 
-  render() {
-    return (
-      <Router>
-        <Suspense fallback={<div className="loading" />}>
-          <Switch>
-            <Route path="/backend_tests" component={BackendTests} />
-            <Route path="/auth/callback" component={OAuthCallback} />
-            <Redirect to="/backend_tests" />
-          </Switch>
-        </Suspense>
-      </Router>
-    )
-  }
+  return (
+    <Router>
+      <Suspense fallback={<div className="loading" />}>
+        <Switch>
+          <Route path="/backend_tests" component={BackendTests} />
+          <Route path="/auth/callback" component={OAuthCallback} />
+          <Redirect to="/backend_tests" />
+        </Switch>
+      </Suspense>
+    </Router>
+  )
 }
-
-Routes.propTypes = {
-  auth: PropTypes.object.isRequired,
-  getCurrentUser: PropTypes.func.isRequired
-}
-
-const mapStateToProps = ({ auth }) => ({ auth })
-
-export default connect(mapStateToProps, { getCurrentUser })(Routes)

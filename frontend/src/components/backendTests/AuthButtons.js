@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { t } from 'ttag'
 import {
   signInLocal,
@@ -9,17 +8,14 @@ import {
   signOut
 } from '../../actions'
 
-const AuthButtons = ({
-  auth,
-  signInLocal: _signInLocal,
-  signInGoogle: _signInGoogle,
-  signInFacebook: _signInFacebook,
-  signOut: _signOut
-}) => {
+export default function AuthButtons() {
+  const dispatch = useDispatch()
+  const auth = useSelector(({ auth }) => auth)
+
   const onSignInLocalClick = () => {
     const email = prompt(t`Email`, 'initial@user.com')
     const password = prompt(t`Password`, 'initial')
-    _signInLocal({ email, password })
+    dispatch(signInLocal({ email, password }))
   }
 
   const renderText = () =>
@@ -35,7 +31,7 @@ const AuthButtons = ({
     <div className="auth-buttons">
       <h3>{t`Auth`}</h3>
       {auth.isFetching ? null : auth.isPresent ? (
-        <button type="button" onClick={_signOut}>
+        <button type="button" onClick={() => dispatch(signOut())}>
           {t`Sign out`}
         </button>
       ) : (
@@ -44,11 +40,11 @@ const AuthButtons = ({
             {t`Sign in`}
           </button>
           &nbsp;
-          <button type="button" onClick={_signInGoogle}>
+          <button type="button" onClick={() => dispatch(signInGoogle())}>
             {t`Google sign in`}
           </button>
           &nbsp;
-          <button type="button" onClick={_signInFacebook}>
+          <button type="button" onClick={() => dispatch(signInFacebook())}>
             {t`Facebook sign in`}
           </button>
         </>
@@ -57,20 +53,3 @@ const AuthButtons = ({
     </div>
   )
 }
-
-AuthButtons.propTypes = {
-  auth: PropTypes.object.isRequired,
-  signInLocal: PropTypes.func.isRequired,
-  signInGoogle: PropTypes.func.isRequired,
-  signInFacebook: PropTypes.func.isRequired,
-  signOut: PropTypes.func.isRequired
-}
-
-const mapStateToProps = ({ auth, language }) => ({ auth, language })
-
-export default connect(mapStateToProps, {
-  signInLocal,
-  signInGoogle,
-  signInFacebook,
-  signOut
-})(AuthButtons)

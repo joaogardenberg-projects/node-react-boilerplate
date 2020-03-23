@@ -1,12 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { t } from 'ttag'
 import LanguageButtons from './LanguageButtons'
 import AuthButtons from './AuthButtons'
 import UsersButtons from './UsersButtons'
 import CurrentUserButtons from './CurrentUserButtons'
 
-const BackendTests = () => {
+export default function BackendTests() {
   return (
     <div>
       <h1>{t`Backend Tests`}</h1>
@@ -20,9 +19,3 @@ const BackendTests = () => {
     </div>
   )
 }
-
-BackendTests.propTypes = {}
-
-const mapStateToProps = ({ language }) => ({ language })
-
-export default connect(mapStateToProps)(BackendTests)

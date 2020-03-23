@@ -1,35 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { t } from 'ttag'
 import { setLanguage } from '../../actions'
 
-const LanguageButtons = ({ setLanguage: _setLanguage }) => {
+export default function LanguageButtons() {
+  const dispatch = useDispatch()
+
   return (
     <div className="language-buttons">
       <h3>{t`Language`}</h3>
       <button
         type="button"
-        onClick={() => _setLanguage('en')}
+        onClick={() => dispatch(setLanguage('en'))}
       >{t`English`}</button>
       &nbsp;
       <button
         type="button"
-        onClick={() => _setLanguage('pt-BR')}
+        onClick={() => dispatch(setLanguage('pt-BR'))}
       >{t`Portuguese`}</button>
       &nbsp;
       <button
         type="button"
-        onClick={() => _setLanguage('es')}
+        onClick={() => dispatch(setLanguage('es'))}
       >{t`Spanish`}</button>
     </div>
   )
 }
-
-LanguageButtons.propTypes = {
-  setLanguage: PropTypes.func.isRequired
-}
-
-const mapStateToProps = ({ language }) => ({ language })
-
-export default connect(mapStateToProps, { setLanguage })(LanguageButtons)

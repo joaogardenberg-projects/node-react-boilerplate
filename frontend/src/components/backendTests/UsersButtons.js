@@ -1,6 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
 import { t } from 'ttag'
 import {
   fetchUsers,
@@ -10,21 +9,17 @@ import {
   destroyUser
 } from '../../actions'
 
-const UsersButtons = ({
-  users,
-  fetchUsers: _fetchUsers,
-  fetchUser: _fetchUser,
-  createUser: _createUser,
-  updateUser: _updateUser,
-  destroyUser: _destroyUser
-}) => {
+export default function UsersButtons() {
+  const dispatch = useDispatch()
+  const users = useSelector(({ users }) => users)
+
   const onFetchUsersClick = () => {
-    _fetchUsers()
+    dispatch(fetchUsers())
   }
 
   const onFetchUserClick = () => {
     const id = window.prompt(t`User id`)
-    _fetchUser({ id })
+    dispatch(fetchUser({ id }))
   }
 
   const getRandomEmail = () =>
@@ -39,7 +34,8 @@ const UsersButtons = ({
       password: 'initial',
       name: t`User's name`
     }
-    _createUser({ fields })
+
+    dispatch(createUser({ fields }))
   }
 
   const onUpdateUserClick = () => {
@@ -47,12 +43,13 @@ const UsersButtons = ({
     const fields = {
       email: window.prompt(t`New email`, getRandomEmail())
     }
-    _updateUser({ id, fields })
+
+    dispatch(updateUser({ id, fields }))
   }
 
   const onDestroyUserClick = () => {
     const id = window.prompt(t`User id`)
-    _destroyUser({ id })
+    dispatch(destroyUser({ id }))
   }
 
   const renderUsers = () => {
@@ -120,22 +117,3 @@ const UsersButtons = ({
     </div>
   )
 }
-
-UsersButtons.propTypes = {
-  users: PropTypes.object.isRequired,
-  fetchUsers: PropTypes.func.isRequired,
-  fetchUser: PropTypes.func.isRequired,
-  createUser: PropTypes.func.isRequired,
-  updateUser: PropTypes.func.isRequired,
-  destroyUser: PropTypes.func.isRequired
-}
-
-const mapStateToProps = ({ users, language }) => ({ users, language })
-
-export default connect(mapStateToProps, {
-  fetchUsers,
-  fetchUser,
-  createUser,
-  updateUser,
-  destroyUser
-})(UsersButtons)
