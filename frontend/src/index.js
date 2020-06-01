@@ -10,9 +10,11 @@ import { setI18nLanguage } from './services/i18n'
 setI18nLanguage(getStorageLanguage())
 
 ReactDOM.render(
-  <Redux>
-    <Routes />
-  </Redux>,
+  <StrictMode>
+    <Redux>
+      <Routes />
+    </Redux>
+  </StrictMode>,
   document.getElementById('root')
 )
 
