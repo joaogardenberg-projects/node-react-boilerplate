@@ -1,4 +1,4 @@
-const { URL_REGEX } = require('../../../config/regex')
+const { URL_REGEX } = require('config/regex')
 
 module.exports = {
   url: {

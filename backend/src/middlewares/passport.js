@@ -1,5 +1,5 @@
 const passport = require('passport')
-const User = require('../models/mongo/user')
+const User = require('models/mongo/user')
 const localStrategy = require('./localStrategy')
 const jwtStrategy = require('./jwtStrategy')
 const googleStrategy = require('./googleStrategy')

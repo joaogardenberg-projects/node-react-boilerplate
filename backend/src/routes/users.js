@@ -1,5 +1,5 @@
 const restfulApiRoutes = require('./restfulApi')
-const UsersController = require('../controllers/users')
+const UsersController = require('controllers/users')
 
 module.exports = (app) => {
   restfulApiRoutes({

@@ -1,6 +1,6 @@
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt')
-const { JWT_SECRET } = require('../config')
-const jwtRedis = require('../services/auth/jwtRedis')
+const { JWT_SECRET } = require('config')
+const jwtRedis = require('services/auth/jwtRedis')
 
 module.exports = (passport, User) => {
   passport.use(

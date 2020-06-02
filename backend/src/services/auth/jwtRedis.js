@@ -1,4 +1,4 @@
-const redisClient = require('../../models/redis')
+const redisClient = require('models/redis')
 const getRedisKey = require('./getRedisKey')
 
 const TIMEOUT = 5000

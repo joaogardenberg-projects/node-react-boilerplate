@@ -1,6 +1,6 @@
-const currentUserService = require('../services/auth/currentUser')
-const signInService = require('../services/auth/signIn')
-const signOutService = require('../services/auth/signOut')
+const currentUserService = require('services/auth/currentUser')
+const signInService = require('services/auth/signIn')
+const signOutService = require('services/auth/signOut')
 
 async function currentUser(req, res) {
   res.send(await currentUserService(req, res))

@@ -1,4 +1,4 @@
-const sanitizeImage = require('../images/sanitize')
+const sanitizeImage = require('services/images/sanitize')
 
 module.exports = ({
   _id,

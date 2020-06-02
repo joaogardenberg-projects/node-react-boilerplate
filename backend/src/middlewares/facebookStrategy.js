@@ -3,7 +3,7 @@ const {
   FACEBOOK_CLIENT_ID,
   FACEBOOK_CLIENT_SECRET,
   FACEBOOK_CALLBACK_URL
-} = require('../config')
+} = require('config')
 
 module.exports = (passport, User) => {
   passport.use(

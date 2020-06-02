@@ -3,7 +3,7 @@ const {
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
   GOOGLE_CALLBACK_URL
-} = require('../config')
+} = require('config')
 
 module.exports = (passport, User) => {
   passport.use(

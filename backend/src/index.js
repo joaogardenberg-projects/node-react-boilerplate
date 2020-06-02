@@ -1,8 +1,8 @@
 const express = require('express')
-const { PORT } = require('./config')
-const addMiddlewares = require('./middlewares')
-const mongoConnect = require('./models/mongo')
-const addRoutes = require('./routes')
+const { PORT } = require('config')
+const addMiddlewares = require('middlewares')
+const mongoConnect = require('models/mongo')
+const addRoutes = require('routes')
 
 const app = express()
 

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
-const authenticate = require('../../middlewares/authenticate')
-const { JWT_SECRET } = require('../../config')
-const sanitize = require('../users/sanitize')
+const authenticate = require('middlewares/authenticate')
+const { JWT_SECRET } = require('config')
+const sanitize = require('services/users/sanitize')
 const jwtRedis = require('./jwtRedis')
 
 module.exports = (req, res, strategy, options) => {

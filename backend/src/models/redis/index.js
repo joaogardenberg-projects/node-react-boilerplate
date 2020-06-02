@@ -1,5 +1,5 @@
 const { createClient } = require('redis')
-const { REDIS_URI } = require('../../config')
+const { REDIS_URI } = require('config')
 
 const client = createClient(REDIS_URI, { retry_strategy: () => 1000 })
 

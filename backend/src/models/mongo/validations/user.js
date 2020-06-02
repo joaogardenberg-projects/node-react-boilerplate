@@ -1,5 +1,5 @@
-const { EMAIL_REGEX } = require('../../../config/regex')
-const { SIGN_IN_PROVIDERS, LANGUAGES } = require('../../../config/constants')
+const { EMAIL_REGEX } = require('config/regex')
+const { SIGN_IN_PROVIDERS, LANGUAGES } = require('config/constants')
 
 module.exports = {
   name: {

@@ -1,5 +1,5 @@
 const sanitize = require('./sanitize')
-const sanitizeErrors = require('../common/sanitizeErrors')
+const sanitizeErrors = require('services/common/sanitizeErrors')
 
 module.exports = async (currentUser, attrs) => {
   if (!currentUser) {

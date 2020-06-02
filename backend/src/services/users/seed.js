@@ -1,4 +1,4 @@
-const User = require('../../models/mongo/user')
+const User = require('models/mongo/user')
 
 module.exports = async () => {
   if (!(await User.countDocuments({}))) {

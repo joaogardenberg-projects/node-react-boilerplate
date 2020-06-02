@@ -1,7 +1,7 @@
 const pickBy = require('lodash/pickBy')
 const identity = require('lodash/identity')
 const restfulApi = require('./restfulApi')
-const api = require(`../services/users/api`)
+const api = require(`services/users/api`)
 
 const permittedParams = ({ id } = {}) => pickBy({ id }, identity)
 

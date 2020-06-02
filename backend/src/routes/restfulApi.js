@@ -1,5 +1,5 @@
-const requireSignIn = require('../middlewares/requireSignIn')
-const requireAdmin = require('../middlewares/requireAdmin')
+const requireSignIn = require('middlewares/requireSignIn')
+const requireAdmin = require('middlewares/requireAdmin')
 
 module.exports = ({
   app,

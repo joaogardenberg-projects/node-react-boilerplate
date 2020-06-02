@@ -1,5 +1,5 @@
-const authenticate = require('../../middlewares/authenticate')
-const sanitize = require('../users/sanitize')
+const authenticate = require('middlewares/authenticate')
+const sanitize = require('services/users/sanitize')
 
 module.exports = (req, res) => {
   return new Promise((resolve) => {

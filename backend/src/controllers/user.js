@@ -1,6 +1,6 @@
 const pickBy = require('lodash/pickBy')
 const identity = require('lodash/identity')
-const updateService = require('../services/users/currentUserUpdate')
+const updateService = require('services/users/currentUserUpdate')
 
 async function update({ user: currentUser, body }, res) {
   const user = await updateService(

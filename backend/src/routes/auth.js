@@ -1,5 +1,5 @@
-const AuthController = require('../controllers/auth')
-const requireSignIn = require('../middlewares/requireSignIn')
+const AuthController = require('controllers/auth')
+const requireSignIn = require('middlewares/requireSignIn')
 
 module.exports = (app) => {
   app.get('/auth', requireSignIn, AuthController.currentUser)

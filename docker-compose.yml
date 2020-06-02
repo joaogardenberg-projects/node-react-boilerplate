@@ -14,10 +14,10 @@ services:
     depends_on:
       - backend
     environment:
+      - NODE_PATH=src/
       - REACT_APP_BASE_BACKEND_URL=http://localhost:4000
       - NODE_ENV=development
       - PORT=3000
-      - NODE_PATH=src/
       - CHOKIDAR_USEPOLLING=true
     tty: true
   backend:
@@ -38,6 +38,7 @@ services:
       - redis
       - mongo
     environment:
+      - NODE_PATH=src/
       - BASE_FRONTEND_URL=http://localhost:3000
       - FACEBOOK_CLIENT_ID=857754284683597
       - FACEBOOK_CLIENT_SECRET=a47cd72988e56dfd94ba6c1810f9c05a

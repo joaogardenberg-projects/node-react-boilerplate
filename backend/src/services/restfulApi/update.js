@@ -1,4 +1,4 @@
-const sanitizeErrors = require('../common/sanitizeErrors')
+const sanitizeErrors = require('services/common/sanitizeErrors')
 
 module.exports = ({
   Model,
