@@ -1,4 +1,4 @@
-import api from '../services/api'
+import api from 'services/api'
 import {
   FETCH_USERS_SENT,
   FETCH_USERS_SUCCEEDED,

@@ -1,12 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { t } from 'ttag'
-import {
-  signInLocal,
-  signInGoogle,
-  signInFacebook,
-  signOut
-} from '../../actions'
+import { signInLocal, signInGoogle, signInFacebook, signOut } from 'actions'
 
 export default function AuthButtons() {
   const dispatch = useDispatch()

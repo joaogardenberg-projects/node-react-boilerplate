@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { t } from 'ttag'
-import { setLanguage } from '../../actions'
+import { setLanguage } from 'actions'
 
 export default function LanguageButtons() {
   const dispatch = useDispatch()

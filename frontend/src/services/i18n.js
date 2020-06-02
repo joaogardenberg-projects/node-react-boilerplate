@@ -1,6 +1,6 @@
 import { addLocale, useLocale } from 'ttag'
-import es from '../config/i18n/objects/es.po.json'
-import ptBR from '../config/i18n/objects/pt-BR.po.json'
+import es from 'config/i18n/objects/es.po.json'
+import ptBR from 'config/i18n/objects/pt-BR.po.json'
 
 const availableLanguages = []
 

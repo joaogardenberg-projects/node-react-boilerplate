@@ -1,7 +1,7 @@
 import axios from 'axios'
 import omit from 'lodash/omit'
 import { getAuthToken } from './authToken'
-import config from '../config'
+import config from 'config'
 
 export const get = (path, options) => request('get', path, options)
 

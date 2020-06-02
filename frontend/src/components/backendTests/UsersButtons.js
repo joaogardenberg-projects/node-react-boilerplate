@@ -7,7 +7,7 @@ import {
   createUser,
   updateUser,
   destroyUser
-} from '../../actions'
+} from 'actions'
 
 export default function UsersButtons() {
   const dispatch = useDispatch()

@@ -1,5 +1,5 @@
 import { t } from 'ttag'
-import config from '../config'
+import config from 'config'
 
 export default (type) =>
   new Promise((resolve, reject) => {

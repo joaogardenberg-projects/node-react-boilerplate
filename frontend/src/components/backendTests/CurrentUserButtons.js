@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { t } from 'ttag'
-import { updateCurrentUser } from '../../actions'
+import { updateCurrentUser } from 'actions'
 
 export default function CurrentUserButtons() {
   const dispatch = useDispatch()

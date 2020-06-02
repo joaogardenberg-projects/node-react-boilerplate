@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import config from '../config'
+import config from 'config'
 import watcher from './watcher'
 import language from './language'
 import auth from './auth'

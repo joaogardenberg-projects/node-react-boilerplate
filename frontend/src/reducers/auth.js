@@ -21,7 +21,7 @@ import {
   DESTROY_CURRENT_USER_SENT,
   DESTROY_CURRENT_USER_SUCCEEDED,
   DESTROY_CURRENT_USER_FAILED
-} from '../actions/types'
+} from 'actions/types'
 
 const INITIAL_USER_STATE = { isFetching: false }
 

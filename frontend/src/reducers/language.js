@@ -1,5 +1,5 @@
-import { setStorageLanguage, getStorageLanguage } from '../services/language'
-import { setI18nLanguage } from '../services/i18n'
+import { setStorageLanguage, getStorageLanguage } from 'services/language'
+import { setI18nLanguage } from 'services/i18n'
 import {
   GET_CURRENT_USER_SUCCEEDED,
   SIGN_IN_LOCAL_SUCCEEDED,
@@ -9,7 +9,7 @@ import {
   UPDATE_CURRENT_USER_SUCCEEDED,
   DESTROY_CURRENT_USER_SUCCEEDED,
   SET_LOCAL_LANGUAGE
-} from '../actions/types'
+} from 'actions/types'
 
 export default (state = getStorageLanguage(), { type, payload }) => {
   switch (type) {

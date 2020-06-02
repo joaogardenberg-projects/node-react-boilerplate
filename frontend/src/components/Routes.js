@@ -6,7 +6,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
-import { getCurrentUser } from '../actions'
+import { getCurrentUser } from 'actions'
 
 const OAuthCallback = lazy(() => import('./auth/OAuthCallback'))
 const BackendTests = lazy(() => import('./backendTests/BackendTests'))

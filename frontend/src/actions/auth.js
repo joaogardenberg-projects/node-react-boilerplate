@@ -1,11 +1,7 @@
 import { t } from 'ttag'
-import API from '../services/api'
-import oAuthSignIn from '../services/oAuthSignIn'
-import {
-  getAuthToken,
-  setAuthToken,
-  removeAuthToken
-} from '../services/authToken'
+import API from 'services/api'
+import oAuthSignIn from 'services/oAuthSignIn'
+import { getAuthToken, setAuthToken, removeAuthToken } from 'services/authToken'
 import {
   GET_CURRENT_USER_SENT,
   GET_CURRENT_USER_SUCCEEDED,
