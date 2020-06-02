@@ -1,4 +1,5 @@
 import 'services/i18n'
+import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
 import Redux from 'providers/Redux'
