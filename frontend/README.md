@@ -6,7 +6,9 @@
 
 - Built with [ReactJS](https://reactjs.org/), using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
 
-- Using [Redux](https://redux.js.org/) and [Redux Thunk](https://github.com/reduxjs/redux-thunk) for global state management.
+- Using [Redux](https://redux.js.org/) for global state management.
+
+- Using [Redux Thunk](https://github.com/reduxjs/redux-thunk) for integrating requests with Redux.
 
 - Using [React Router](https://reacttraining.com/react-router/) for the route management.
 
@@ -20,13 +22,13 @@
 
 - If you want to edit translations, the files are inside the [locales](/frontend/src/config/i18n/locales) folder.
 
-- If you don't see what you want to translate there, update the files by opening a terminal and running:
+- Update the translation files by opening a terminal and running:
 
   ```
   $ docker-compose exec frontend npm run i18n:update
   ```
 
-- After changing anything in the translations files, you must compile the translations by running:
+- After changing anything in the translations files, you must compile them by running:
 
   ```
   $ docker-compose exec frontend npm run i18n:compile

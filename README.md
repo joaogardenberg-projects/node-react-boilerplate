@@ -2,7 +2,7 @@
 
 A boilerplate project I built for myself to use whenever I want to start a new project.
 
-It has a backend project structure inspired by [Ruby on Rails](https://rubyonrails.org/).
+It has a [React](https://reactjs.org/) frontend with some basic functionality and a [NodeJS](https://nodejs.org/en/) backend with a structure inspired by [Ruby on Rails](https://rubyonrails.org/).
 
 ## Getting Started
 
@@ -38,7 +38,7 @@ $ docker-compose up -d
 
 ### Whole project
 
-- All you need is Docker, everything else is managed by Docker inside its containers.
+- All you need is Docker, everything else is managed inside its containers.
 
 - Has a [Prettier](https://prettier.io/) configuration file for you to use ([.prettierrc](.prettierrc)).
 
@@ -50,19 +50,13 @@ $ docker-compose up -d
 
 - Using [Express](https://expressjs.com/) for the web server.
 
-- Using [Passport](http://www.passportjs.org/) for the authentication.
-
 - [Documentation](/backend)
 
 ### Frontend
 
 - Built with [ReactJS](https://reactjs.org/), using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
 
-- Using [Redux](https://redux.js.org/) and [Redux Thunk](https://github.com/reduxjs/redux-thunk) for global state management.
-
-- Using [React Router](https://reacttraining.com/react-router/) for the route management.
-
-- Using [ttag](https://ttag.js.org/) for the translations.
+- Using [Redux](https://redux.js.org/) for global state management.
 
 - [Documentation](/frontend)
 
