@@ -14,15 +14,9 @@
 
 - Using [ttag](https://ttag.js.org/) for the translations.
 
-- If you want to see the output of the Frontend service, open a terminal and run:
+- If you want to edit translations, the files are inside the [src/config/i18n/locales](/frontend/src/config/i18n/locales) folder.
 
-  ```
-  $ docker-compose logs -f --tail=100 frontend
-  ```
-
-- If you want to edit translations, the files are inside the [locales](/frontend/src/config/i18n/locales) folder.
-
-- Update the translation files by opening a terminal and running:
+- Update the translation files by running:
 
   ```
   $ docker-compose exec frontend yarn i18n:update
@@ -32,4 +26,10 @@
 
   ```
   $ docker-compose exec frontend yarn i18n:compile
+  ```
+
+- If you want to see the output of the Frontend service, run:
+
+  ```
+  $ docker-compose logs -f --tail=100 frontend
   ```
