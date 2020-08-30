@@ -1,7 +1,7 @@
 FROM node:alpine
 WORKDIR /app
 COPY ./backend/package.json .
-RUN npm install --silent
+RUN yarn --silent
 COPY ./backend/ .
 COPY docker-compose.yml .
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]

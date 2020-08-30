@@ -25,11 +25,11 @@
 - Update the translation files by opening a terminal and running:
 
   ```
-  $ docker-compose exec frontend npm run i18n:update
+  $ docker-compose exec frontend yarn i18n:update
   ```
 
 - After changing anything in the translations files, you must compile them by running:
 
   ```
-  $ docker-compose exec frontend npm run i18n:compile
+  $ docker-compose exec frontend yarn i18n:compile
   ```
