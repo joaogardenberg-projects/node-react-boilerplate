@@ -1,12 +1,9 @@
 import Storage from './storage'
 
-export const getStorageLanguage = () => {
-  return Storage.get('language')
-}
+export const getStorageLanguage = () => Storage.get('language')
 
-export const setStorageLanguage = (language) => {
-  return Storage.set('language', language)
-}
+export const setStorageLanguage = (language) =>
+  Storage.set('language', language)
 
 export default {
   getStorageLanguage,

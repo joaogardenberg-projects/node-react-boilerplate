@@ -1,15 +1,9 @@
-export const getAuthToken = () => localStorage.getItem('session')
+import Storage from './storage'
 
-export const setAuthToken = (token) => {
-  if (token === getAuthToken()) {
-    return false
-  }
+export const getAuthToken = () => Storage.get('session')
 
-  localStorage.setItem('session', token)
-  return true
-}
+export const setAuthToken = (token) => Storage.set('session', token)
 
-export const removeAuthToken = () =>
-  getAuthToken() && localStorage.removeItem('session')
+export const removeAuthToken = () => Storage.remove('session')
 
 export default { getAuthToken, setAuthToken, removeAuthToken }

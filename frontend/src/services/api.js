@@ -44,4 +44,10 @@ const request = (method, path, options = {}) => {
   })
 }
 
-export default { get, post, put, patch, delete: _delete }
+export default {
+  get,
+  post,
+  put,
+  patch,
+  delete: _delete
+}
