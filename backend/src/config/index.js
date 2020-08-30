@@ -8,7 +8,7 @@ const config = {
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   GOOGLE_CALLBACK_URL: `${process.env.BASE_FRONTEND_URL}/auth/callback`,
-  JWT_KEY: process.env.JWT_KEY,
+  JWT_REDIS_KEY: process.env.JWT_REDIS_KEY,
   JWT_SECRET: process.env.JWT_SECRET,
   MONGODB_URI: process.env.MONGODB_URI,
   NODE_ENV: process.env.NODE_ENV,
