@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
+
 const express = require('express')
 const { PORT } = require('config')
 const addMiddlewares = require('middlewares')
