@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const validation = require('./validations/user')
 const Schema = require('./schema')
-const ImageSchema = require('./image')
 const methods = require('./methods/user')
 const { SIGN_IN_PROVIDERS } = require('config/constants')
 
@@ -13,7 +12,7 @@ const UserSchema = Schema(
     },
     picture: {
       ...validation.picture,
-      type: ImageSchema
+      type: String
     },
     email: {
       ...validation.email,

@@ -1,5 +1,3 @@
-const sanitizeImage = require('services/images/sanitize')
-
 module.exports = ({
   _id,
   name,
@@ -16,7 +14,7 @@ module.exports = ({
 } = {}) => ({
   id: _id,
   name,
-  picture: picture && sanitizeImage(picture),
+  picture,
   email,
   googleId,
   facebookId,
