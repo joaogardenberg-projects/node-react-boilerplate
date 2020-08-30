@@ -12,7 +12,10 @@ fs.readdir(localesDir, (err, files) => {
   files
     .filter((file) => file.endsWith('.po'))
     .forEach((file) => {
-      const ls = spawnSync('ttag', ['update', `${localesDir}/${file}`, 'src'])
+      const ls = spawnSync('ttag', ['update', `${localesDir}/${file}`, 'src'], {
+        shell: true
+      })
+
       console.log(ls.stderr.toString())
     })
 })

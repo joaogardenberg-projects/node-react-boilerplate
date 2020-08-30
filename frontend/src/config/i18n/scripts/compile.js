@@ -10,13 +10,18 @@ fs.readdir(localesDir, (err, files) => {
     return console.log(`Unable to find directory: ${localesDir}`)
   }
 
-  spawnSync('rm', ['-rf', objectsDir])
-  spawnSync('mkdir', [objectsDir])
+  spawnSync('rm', ['-rf', objectsDir], { shell: true })
+  spawnSync('mkdir', [objectsDir], { shell: true })
 
   files
     .filter((file) => file.endsWith('.po'))
     .forEach((file) => {
-      const { stdout } = spawnSync('ttag', ['po2json', `${localesDir}/${file}`])
+      const { stdout } = spawnSync(
+        'ttag',
+        ['po2json', `${localesDir}/${file}`],
+        { shell: true }
+      )
+
       fs.writeFileSync(`${objectsDir}/${file}.json`, stdout)
     })
 })
