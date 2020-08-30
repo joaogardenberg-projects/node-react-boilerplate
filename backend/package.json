@@ -14,16 +14,14 @@
     "url": "https://github.com/joaogardenberg-projects/node-react-boilerplate/issues"
   },
   "scripts": {
-    "dev": "cross-env NODE_PATH=./src nodemon -L",
-    "start": "cross-env  forever start NODE_PATH=./src src/index.js",
+    "dev": "nodemon -L",
+    "start": "forever start src/index.js",
     "stop": "forever stop src/index.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.2",
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "forever": "^3.0.2",
     "helmet": "^4.1.0",
