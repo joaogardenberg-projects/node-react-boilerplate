@@ -25,7 +25,7 @@ You need [Docker](https://www.docker.com/) to run this project.
 First you have to **clone** or **download** this repository:
 
 ```
-$ git clone git@github.com:joaogardenberg-projects/node-react-boilerplate.git
+$ git clone git@github.com:joaogardenberg/node-react-boilerplate.git
 ```
 
 Then open a terminal at the **project root** and build the docker images:
@@ -78,7 +78,7 @@ $ docker-compose up -d
 
 - **João Lucas da Costa Gardenberg** - _Initial work_
 
-See also the list of [contributors](https://github.com/joaogardenberg-projects/node-react-boilerplate/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/joaogardenberg/node-react-boilerplate/graphs/contributors) who participated in this project.
 
 ## License
 
