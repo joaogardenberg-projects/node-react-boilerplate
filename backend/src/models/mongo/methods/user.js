@@ -2,14 +2,14 @@ const commonMethods = require('./common')
 const validatePassword = require('services/users/validatePassword')
 const encryptPassword = require('services/users/encryptPassword')
 
-module.exports = (UserSchema) => {
-  commonMethods(UserSchema)
+module.exports = (Schema) => {
+  commonMethods(Schema)
 
-  UserSchema.methods.validPassword = function (password) {
+  Schema.methods.validPassword = function (password) {
     return validatePassword(password, this.password)
   }
 
-  UserSchema.post('validate', function (doc) {
+  Schema.post('validate', function (doc) {
     if (doc.password) {
       doc.password = encryptPassword(doc.password)
     }

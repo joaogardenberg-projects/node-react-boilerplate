@@ -62,5 +62,11 @@ module.exports = ({
     res.send(record)
   }
 
-  return { index, show, create, update, destroy }
+  return {
+    index,
+    show,
+    create,
+    update,
+    destroy
+  }
 }

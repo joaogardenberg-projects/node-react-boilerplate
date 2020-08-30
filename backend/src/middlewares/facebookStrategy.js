@@ -33,23 +33,17 @@ module.exports = (passport, User) => {
             }
 
             if (user) {
-              if (
-                (name && user.name !== name) ||
-                (picture && (user.picture || {}).url !== picture) ||
-                (oAuthEmail && user.oAuthEmail !== oAuthEmail)
-              ) {
-                const newName = name || user.name
-                const newPicture =
-                  picture && (user.picture || {}).url !== picture
-                    ? { url: picture, alt: `${name || 'User'}'s picture` }
-                    : user.picture
-                const newOAuthEmail = oAuthEmail || user.oAuthEmail
+              const hasNewName = name && name !== user.name
+              const hasNewPicture = picture && picture !== user.picture
+              const hasNewOAuthEmail =
+                oAuthEmail && oAuthEmail !== user.oAuthEmail
 
+              if (hasNewName || hasNewPicture || hasNewOAuthEmail) {
                 user
                   .set({
-                    name: newName,
-                    picture: newPicture,
-                    oAuthEmail: newOAuthEmail
+                    name: name || user.name,
+                    picture: hasNewPicture ? picture : user.picture,
+                    oAuthEmail: oAuthEmail || user.oAuthEmail
                   })
                   .save((_err, _user) => {
                     _err
@@ -63,9 +57,7 @@ module.exports = (passport, User) => {
               User.create(
                 {
                   name,
-                  picture: picture
-                    ? { url: picture, alt: `${name || 'User'}'s picture` }
-                    : undefined,
+                  picture,
                   facebookId,
                   oAuthEmail,
                   signInProvider: 'facebook'
