@@ -2,7 +2,13 @@
 
 A boilerplate project I built for myself to use whenever I want to start a new project.
 
-It has a [React](https://reactjs.org/) frontend with some basic functionality and a [NodeJS](https://nodejs.org/en/) backend with a structure inspired by [Ruby on Rails](https://rubyonrails.org/).
+It has:
+
+- A [React](https://reactjs.org/) frontend with some basic functionality
+- A [NodeJS](https://nodejs.org/en/) backend with a structure inspired by [Ruby on Rails](https://rubyonrails.org/)
+- A [MongoDB](https://www.mongodb.com/) service
+- A [Redis](https://redis.io/) service
+- All managed by [Docker](https://www.docker.com/)
 
 ## Getting Started
 
