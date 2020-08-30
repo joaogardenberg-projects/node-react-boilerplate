@@ -23,10 +23,10 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "forever": "^2.0.0",
-    "helmet": "^3.21.3",
-    "lodash": "^4.17.15",
-    "mongoose": "^5.9.5",
+    "forever": "^3.0.2",
+    "helmet": "^4.1.0",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.2",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
@@ -37,7 +37,7 @@
     "redis": "^3.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2",
-    "yaml": "^1.7.2"
+    "nodemon": "^2.0.4",
+    "yaml": "^1.10.0"
   }
 }
